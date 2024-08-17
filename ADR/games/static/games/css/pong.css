@@ -1,0 +1,60 @@
+main {
+    width: 100%;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    min-height: 90vh;
+    text-align: center;
+}
+
+#myCanvas {
+    border: 2px solid #fff;
+    background-color: #000;
+    /* display: block; */
+    margin: 20px auto;
+}
+
+#startScreen,
+#gameOverScreen,
+#pauseScreen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /* display: none; */
+    color: white;
+    font-size: 28px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#startScreen h1,
+#gameOverScreen h1,
+#pauseScreen h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+#startGameBtn,
+#playAgainBtn,
+#pauseGameBtn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#startScreen button:hover,
+#gameOverScreen button:hover,
+#pauseGameScreen button:hover {
+    background-color: #337837;
+}

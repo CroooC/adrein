@@ -1,0 +1,52 @@
+@keyframes emoji-bounce {
+    0% {
+        transform: translateY(-0.65em);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-0.65em);
+    }
+}
+
+.emoji-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 95vh;
+    background-color: #f2f2f2;
+    animation: emoji-bounce 2s infinite;
+}
+
+.emoji {
+    font-size: 10em;
+    color: #000;
+    animation: emoji-change 2s infinite;
+}
+
+@keyframes emoji-change {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-10deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    75% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}

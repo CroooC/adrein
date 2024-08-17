@@ -1,0 +1,247 @@
+/* General */
+
+main {
+    background-color: #000;
+}
+
+h1, h3 {
+    color: #fff;
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    padding: 1rem 0 0.3rem;
+}
+
+h3 {
+    padding: 0 0 1rem;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+
+.funny-box {
+    color: #000;
+    position: relative;
+    width: 15em;
+    height: 15em;
+    margin: 1em 5em;
+    overflow: hidden;
+    border-radius: 2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: #fff;
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+}
+
+.funny-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 2em;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Leveling */
+
+.level {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.level-indicator {
+    text-align: center;
+    width: 40rem;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar {
+    width: 42rem;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background-color: #4CAF50;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Boxes */
+
+.funny-box:hover {
+    background-color: #e74c3c;
+}
+
+.funny-box:hover .funny-text {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(360deg);
+}
+
+.rotate:hover .funny-text {
+    transform: translate(-50%, -50%) rotate(360deg);
+}
+
+.pulse:hover .funny-text {
+    animation: pulseEffect 0.5s infinite alternate;
+}
+
+@keyframes pulseEffect {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+.flip:hover .funny-text {
+    transform: translate(-50%, -50%) scaleX(-1);
+}
+
+.bounce:hover .funny-text {
+    animation: bounceEffect 0.5s infinite;
+}
+
+@keyframes bounceEffect {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-1.25em);
+    }
+
+    60% {
+        transform: translateY(-0.65em);
+    }
+}
+
+.shake:hover .funny-text {
+    transform-origin: top;
+    animation: shakeEffect 0.5s infinite;
+}
+
+@keyframes shakeEffect {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-0.65em);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(0.65em);
+    }
+}
+
+.color-changer {
+    background-image: linear-gradient(to bottom, #ff69b4, #ffd7be);
+    background-size: 100% 200px;
+    background-position: 0% 100%;
+    transition: background-position 0.3s;
+}
+
+.color-changer:hover {
+    background-position: 0% 0%;
+}
+
+.joke-box .joke {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.joke-box:hover .joke {
+    opacity: 1;
+}
+
+.sound-box {
+    cursor: pointer;
+}
+
+.quote-box .quote {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.quote-box:hover .quote {
+    opacity: 1;
+}
+
+/* Rewards */
+
+.rewards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.reward {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.reward.unlocked {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.reward:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.reward.confetti {
+    background-image: url('confetti.png');
+    background-size: 50px 50px;
+}
+
+.reward.fireworks {
+    background-image: url('fireworks.png');
+    background-size: 50px 50px;
+}
+
+.reward.bonus-box {
+    background-image: url('bonus-box.png');
+    background-size: 50px 50px;
+}

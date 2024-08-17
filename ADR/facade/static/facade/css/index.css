@@ -1,0 +1,165 @@
+main {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+}
+
+
+/* General style */
+
+h1 {
+    text-align: center;
+    font-size: 2em;
+}
+
+h2 {
+    margin: 0.5em 0;
+    text-transform: uppercase;
+}
+
+h3 {
+    text-align: center;
+    color: #fff;
+    margin: 0.5em 0 0 0;
+    text-transform: uppercase;
+}
+
+p {
+    text-align: center;
+    word-wrap: break-word;
+    margin: 0 auto;
+    color: #fff;
+}
+
+ul, li {
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+
+/* Section */
+
+section {
+    text-align: center;
+    margin: 1em 0;
+    border: 0.125em solid #fff;
+    border-radius: 0.3em;
+}
+
+section a {
+    display: inline-block;
+    background-color: #000;
+    padding: 0.5em;
+    text-decoration: none;
+    margin: 2em 1em 0.8em;
+    border-radius: 0.25em;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+section a:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+#welcome-section, #apps-section, #games-section, #multi-games-section, #functionalities-section, #search-section {
+    margin: 5em 0 1em;
+}
+
+
+/* Forms */
+
+.wrapper {
+    max-width: 150em;
+    margin: 2.5em auto 0 auto;
+    padding: 2em 0;
+    box-sizing: border-box;
+}
+
+.wrapper form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.wrapper input,
+.wrapper textarea {
+    padding: 1em;
+    margin: 0.5em 0 1em 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.wrapper button {
+    padding: 1.5em;
+    margin-top: 1em;
+    border-radius: 0.2em;
+    border: 0.125em solid #fff;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.wrapper button:hover {
+    background-color: #666;
+    transform: scale(1.05);
+}
+
+
+/* Contact */
+
+.contact-container {
+    text-align: center;
+    color: #fff;
+    padding: 0.01em 2em 2em;
+    background-color: #333;
+    border-radius: 0.3em;
+}
+
+
+/* About */
+
+.about-container {
+    width: 60em;
+    text-align: center;
+    color: #000;
+    padding: 0.01em 2em 2em;
+    background-color: #fff;
+    border-radius: 0.3em;
+}
+
+.about-container h1, .about-container h3, .about-container p {
+    color: #000;
+}
+
+
+/* Content Grid */
+
+.content-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.content-grid a {
+    /* flex: 1 1 20%; */
+    max-width: 12%;
+}
+
+.content-grid p {
+    color: rgb(255, 76, 76);
+}
+
+.content-grid img {
+    width: 100%;
+    border-radius: 0.3em;
+}
+
+.content-grid a:hover {
+    background-color: #333;
+}

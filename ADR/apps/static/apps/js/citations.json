@@ -1,0 +1,42 @@
+[
+    {
+        "nom": "Graven",
+        "citation": "A variable is something that can vary",
+        "image": "facade/img/chevalier.jpg"
+    },
+    {
+        "nom": "Bill Gates",
+        "citation": "Software is an excellent combination of art and engineering.",
+        "image": "facade/img/bill.jpg"
+    },
+    {
+        "nom": "Bjarne Stroustrup",
+        "citation": "There are only two kinds of programming languages: those that people always say bad things about, and those that nobody uses.",
+        "image": "facade/img/Bjarne.jpg"
+    },
+    {
+        "nom": "Edsger Dijkstra",
+        "citation": "If debugging means removing bugs, then programming can only be about adding them.",
+        "image": "facade/img/Edsger.jpg"
+    },
+    {
+        "nom": "Mark Zuckerberg",
+        "citation": "A simple rule for making a real difference is to always start with the simplest, not the most difficult. Because that's the best way to make rapid progress.",
+        "image": "facade/img/mark.jpg"
+    },
+    {
+        "nom": "Toby Parkins",
+        "citation": "Refactoring is like washing up after cooking.",
+        "image": "facade/img/Toby.jpg"
+    },
+    {
+        "nom": "Auteur inconnu",
+        "citation": "The gap between theory and practice is less wide in theory than it is in practice.",
+        "image": "facade/img/unknown.jpg"
+    },
+    {
+        "nom": "Alan Turing",
+        "citation": "Attempts to create thinking machines will be a great help in discovering how we think ourselves.",
+        "image": "facade/img/Alan.jpg"
+    }
+]

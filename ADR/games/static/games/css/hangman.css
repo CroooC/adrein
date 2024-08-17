@@ -1,0 +1,54 @@
+main {
+    width: 100%;
+    scroll-behavior: smooth;
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#hangman-container {
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+    width: 300px;
+}
+
+#word-container {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #fff;
+}
+
+#used-letters, #lives, #lives-count {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#guess-input {
+    margin-bottom: 10px;
+}
+
+#guess-button {
+    background-color: #fff;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#guess-button:hover {
+    background-color: #fff;
+}

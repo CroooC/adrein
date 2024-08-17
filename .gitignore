@@ -96,8 +96,7 @@ db.sqlite3
 
 # Static folder at project root
 /static/
-static/
-static
+staticfiles/
 
 # macOS
 ._*

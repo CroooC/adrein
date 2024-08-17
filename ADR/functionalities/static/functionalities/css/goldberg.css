@@ -1,0 +1,72 @@
+main {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 85vh;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    justify-content: flex-start;
+}
+
+#machine {
+    justify-content: center;
+    position: relative;
+    width: 31em;
+    height: 25em;
+    background-color: #ddd;
+}
+
+.ball,
+.ramp,
+.domino,
+.hammer,
+.target {
+    position: absolute;
+}
+
+.ball {
+    width: 2em;
+    height: 2em;
+    background-color: red;
+    border-radius: 50%;
+    top: 0.65em;
+    left: 0.65em;
+}
+
+.ramp {
+    width: 6.2em;
+    height: 1.25em;
+    background-color: brown;
+    transform: rotate(-30deg);
+    top: 180px;
+    left: 3.1em;
+}
+
+.domino {
+    width: 1.25em;
+    height: 6.2em;
+    background-color: #222;
+    bottom: 0;
+    left: 250px;
+}
+
+.hammer {
+    width: 5em;
+    height: 1.25em;
+    background-color: #999;
+    top: 150px;
+    left: 420px;
+    transform-origin: bottom right;
+}
+
+.target {
+    width: 3.1em;
+    height: 3.1em;
+    background-color: green;
+    bottom: 0.65em;
+    left: 25em;
+}
