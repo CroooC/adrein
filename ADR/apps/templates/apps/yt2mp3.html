@@ -1,0 +1,64 @@
+{% extends 'a_bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'apps/css/yt2mp3.css' %}"/>{% endblock %}
+
+{% block title %}YT 2 MP3{% endblock %}
+
+{% block content %}
+    <h1>YouTube to MP3 Converter</h1>
+    <input type="text" id="video-url" placeholder="Enter YouTube video URL" />
+    <button id="convert-button">Convert</button>
+    <p id="status-message"></p>
+
+    <script>
+      const videoUrlInput = document.getElementById("video-url");
+      const convertButton = document.getElementById("convert-button");
+      const statusMessage = document.getElementById("status-message");
+
+      convertButton.addEventListener("click", () => {
+        const videoUrl = videoUrlInput.value;
+        if (!videoUrl) {
+          statusMessage.textContent = "Please enter a YouTube video URL.";
+          return;
+        }
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", `https://www.youtube.com/oembed?url=${encodeURIComponent(videoUrl)}&format=json`);
+        xhr.onload = () => {
+          if (xhr.status === 200) {
+            const title = xhr.responseText.title;
+            const id = videoUrl.split("v=")[1];
+            const url = `https://www.youtube.com/watch?v=${id}`;
+            downloadAudio(url, title);
+          } else {
+            statusMessage.textContent = "Invalid YouTube video URL.";
+          }
+        };
+        xhr.send();
+      });
+
+      async function downloadAudio(url, title) {
+        try {
+          const videoId = url.split("v=")[1];
+          const apiUrl = `https://cors-anywhere.herokuapp.com/https://www.youtube.com/get_video_info?video_id=${videoId}`;
+          const response = await fetch(apiUrl);
+          const info = new URLSearchParams(await response.text());
+          const streamUrl = info.get("url_encoded_fmt_stream_map");
+          const audioStream = streamUrl.split(",")[0].split("&")[0];
+          const audioBlob = await (await fetch(audioStream)).blob();
+          const audioUrl = URL.createObjectURL(audioBlob);
+          const audio = new Audio(audioUrl);
+          audio.play();
+          const a = document.createElement("a");
+          a.href = audioUrl;
+          a.download = `${title}.mp3`;
+          a.click();
+          statusMessage.textContent = "Download complete.";
+        } catch (error) {
+          statusMessage.textContent = "Error downloading audio.";
+        }
+      }
+    </script>
+{% endblock %}

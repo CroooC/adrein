@@ -1,0 +1,28 @@
+{% extends 'a_bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'apps/css/quote.css' %}"/>{% endblock %}
+
+{% block title %}Contact - ADR{% endblock %}
+
+{% block header %}Contact me?{% endblock %}
+
+{% block content %}
+    <div class="blockquote-wrapper">
+        <div class="blockquote">
+            <h1 id="citation">A variable is something that can vary</h1>
+            <img id="avatar" alt="Avatar de Graven" src="{% static 'apps/img/chevalier.jpg' %}">
+            <h4 id="nom">Graven</h4>
+        </div>
+    </div>
+
+    <button id="btn">Générer</button>
+
+    <script>
+        var citUrl = "{% static 'apps/js/citations.json' %}";
+        window.citUrl = citUrl;
+    </script>
+    <script>var staticUrl = "{% static '' %}";</script>
+    <script src="{% static 'apps/js/quote.js' %}"></script>
+{% endblock %}

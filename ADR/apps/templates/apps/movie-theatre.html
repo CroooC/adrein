@@ -1,0 +1,67 @@
+{% extends 'a_bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'apps/css/movie-theatre.css' %}"/>{% endblock %}
+
+{% block title %}Movie Theatre Simu{% endblock %}
+
+{% block content %}
+    <h1>Movie Theatre Simulator</h1>
+    <h2>You can manage the number of seets that are in your movie theatre!</h2>
+    <div class="container">
+        <table>
+            <tr>
+                <th>Movies</th>
+                <th>Session</th>
+                <th>Seats availables</th>
+                <th>Reserved</th>
+            </tr>
+            <tr>
+                <td>Voyage au centre du HTML</td>
+                <td>18h00</td>
+                <td id="places1">200</td>
+                <td><button onclick="bookTicket(1)">Book</button></td>
+            </tr>
+            <tr>
+                <td>Les 9 jsons chachés</td>
+                <td>19h00</td>
+                <td id="places2">80</td>
+                <td><button onclick="bookTicket(2)">Book</button></td>
+            </tr>
+            <tr>
+                <td>Algobox - le film</td>
+                <td>20h00</td>
+                <td id="places3">120</td>
+                <td><button onclick="bookTicket(3)">Book</button></td>
+            </tr>
+        </table><br>
+        <div id="message"></div> <!-- New div to display messages -->
+    </div>
+
+    <script>
+        function bookTicket(filmId) {
+            var messageDiv = document.getElementById('message');
+            var placesElement = document.getElementById('places' + filmId);
+            var availablePlaces = parseInt(placesElement.innerText);
+
+            if (availablePlaces > 0) {
+                messageDiv.innerText = "Ticket bought! You choose this movie: " + getFilmTitle(filmId) + ". The number of left seats are: " + (availablePlaces - 1);
+                availablePlaces--;
+                placesElement.innerText = availablePlaces;
+            } else {
+                messageDiv.innerText = "No more seat availables...";
+                placesElement.innerText = "No more seat availabless...";
+            }
+        }
+
+        function getFilmTitle(filmId) {
+            var titles = [
+                "Voyage au centre du HTML",
+                "Les 9 jsons chachés",
+                "Algobox - le film"
+            ];
+            return titles[filmId - 1];
+        }
+    </script>
+{% endblock %}

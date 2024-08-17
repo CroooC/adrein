@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'facade/css/styles.css' %}"/>
+        <link rel="icon" type="image/x-icon" href="{% static 'facade/favicon.ico' %}">
+        {% block styles %}{% endblock %}
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <header>
+            <nav aria-label="default_main_menu">
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}" class="link_icon">
+                            <img src="{% static 'facade/logo.png' %}" alt="Logo ADR">
+                        </a>
+                    </li>
+                    <li><a href="{% url 'game-list' %}">Mini-games</a></li>
+                    <li><a href="{% url 'multi-game-list' %}">MultiPlayers</a></li>
+                    <li><a href="{% url 'app-list' %}">Apps</a></li>
+                    <li><a href="{% url 'functionality-list' %}">Functionalisties</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </nav>
+            <nav arial-label="search_menu">
+                <ul>
+                    <li class="search-form">
+                        <form action="{% url 'search_results' %}" method="get">
+                            <input type="text" name="q" placeholder="Search...">
+                            <button type="submit">Search</button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer>
+            {% comment %} <a href="home.html" class="link_icon">
+                <img src="img/logo/logo2.JPG" alt="Logo n02" title="Retour à l'Accueil" />
+            </a> {% endcomment %}
+            <h5>Copyright &copy; {% now "Y" %} ADR - All Rights Reserved</h5>
+            {% comment %} <a target="_blank" href="https://www.instagram.com/couleurcoton" class="link_icon">
+                <img src="img/logo/insta.png" alt="Logo Instagram" title="Instagram Couleur Coton" />
+            </a> {% endcomment %}
+        </footer>
+
+        <div id="loading-overlay" style="display: none;">
+            {% comment %} <link rel="stylesheet" href="{% static 'facade/css/loading.css' %}"/> {% endcomment %}
+            <section class="loading">
+                Don't forget to bruh your teeth, clean your room and put your durty clothes in the basket
+                <span class="loading__author">  - Your Mom</span>
+                <span class="loading__anim"></span>
+            </section>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="{% static 'facade/js/loading.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+{% extends 'bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'facade/css/index.css' %}"/>{% endblock %}
+
+{% block title %}Contact - ADR{% endblock %}
+
+{% block header %}Contact me?{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="contact-container">
+            <h1>You want to conctact me? You can just right here!</h1>
+            <p>We are here to help you!<br>
+            Or if you have some new ideas to tell us or some problems like bugs don't esitate...</p>
+
+            <form action="" method="post" novalidate>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    {% comment %} <script>
+        document.addEventListener('click', function(event) {
+          if (event.target.tagName === 'A' || event.target.tagName === 'FORM') {
+            // Display the loading overlay
+            document.body.classList.add('loading');
+
+            // Load the new page in the background
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', event.target.href, true);
+            xhr.onload = function() {
+              if (xhr.status === 200) {
+                // Replace the loading overlay with the new page content
+                document.body.innerHTML = xhr.responseText;
+                document.body.classList.remove('loading');
+              }
+            };
+            xhr.send();
+          }
+        });
+    </script> {% endcomment %}
+{% endblock %}

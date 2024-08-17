@@ -1,0 +1,24 @@
+{% extends 'bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'facade/css/index.css' %}"/>{% endblock %}
+
+{% block title %}Functionalities - ADR{% endblock %}
+
+{% comment %} {% block header %}Fun functionalities{% endblock %} {% endcomment %}
+
+{% block content %}
+    <section id="functionalities-section">
+        <h2>Funny Functionalities</h2>
+        <div class="content-grid">
+            {% for functionality in functionalities %}
+                <a href="{% url 'functionality-detail' functionality.id %}">
+                    <img src="{{ functionality.thumbnail.url }}" alt="{{ functionality.name }}">
+                    <h3>{{ functionality.name }}</h3>
+                    <p>{{ functionality.description }}</p>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

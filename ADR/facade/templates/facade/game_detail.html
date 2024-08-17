@@ -1,0 +1,28 @@
+{% extends 'bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'facade/css/detail.css' %}"/>{% endblock %}
+
+{% block title %}Games - {{ game.name }}{% endblock %}
+
+{% block content %}
+    <div class="game-detail-container">
+        <h2>{{ game.name }}</h2>
+
+        <div class="game-thumbnail">
+            <img src="{{ game.thumbnail.url }}" alt="{{ game.name }}">
+        </div>
+
+        <div class="game-details">
+            {% comment %} <li><strong>Active:</strong> {{ game.active|yesno }}</li> {% endcomment %}
+            {% if game.active %}
+                <a href="{{ game.link }}" class="play-now">Play Now</a>
+            {% else %}
+                <li>This feature is not available right now, maybe try later...</li>
+            {% endif %}
+            <p><strong>Genre:</strong> {{ game.get_genre_display }}</p>
+            <p>{{ game.description }}</p>
+        </div>
+    </div>
+{% endblock %}

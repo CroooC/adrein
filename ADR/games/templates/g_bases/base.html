@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'games/css/base.css' %}"/>
+        <link rel="icon" type="image/x-icon" href="{% static 'facade/favicon.ico' %}">
+        {% block styles %}{% endblock %}
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <header>
+            <nav aria-label="default main menu">
+                <ul>
+                    <li>
+                        <a href="{% url 'index' %}" class="link_icon">
+                            <img src="{% static 'facade/logo.png' %}" alt="Logo ADR">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </body>
+</html>

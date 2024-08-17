@@ -1,0 +1,24 @@
+{% extends 'bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'facade/css/index.css' %}"/>{% endblock %}
+
+{% block title %}MultiPlayer Games - ADR{% endblock %}
+
+{% comment %} {% block header %}Mini-Games{% endblock %} {% endcomment %}
+
+{% block content %}
+    <section id="multi-games-section">
+        <h2>MultiPlayers Mini-Games</h2>
+        <div class="content-grid">
+            {% for multi_game in multi_games %}
+                <a href="{% url 'multi-game-detail' multi_game.id %}">
+                    <img src="{{ multi_game.thumbnail.url }}" alt="{{ multi_game.name }}">
+                    <h3>{{ multi_game.name }}</h3>
+                    <p>{{ multi_game.description }}</p>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

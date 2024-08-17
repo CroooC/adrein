@@ -1,0 +1,28 @@
+{% extends 'bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'facade/css/detail.css' %}"/>{% endblock %}
+
+{% block title %}Apps - {{app.name}}{% endblock %}
+
+{% block content %}
+    <div class="app-detail-container">
+        <h2>{{ app.name }}</h2>
+
+        <div class="app-thumbnail">
+            <img src="{{ app.thumbnail.url }}" alt="{{ app.name }}">
+        </div>
+
+        <ul class="app-details">
+            {% comment %} <li><strong>Active:</strong> {{ app.active|yesno }}</li> {% endcomment %}
+            {% if app.active %}
+                <li><a href="{{ app.link }}" class="play-now">Play Now</a></li>
+            {% else %}
+                <li>This feature is not available right now, maybe try later...</li>
+            {% endif %}
+        </ul>
+
+        <p class="app-description">{{ app.description }}</p>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'facade/css/index.css' %}"/>{% endblock %}
+
+{% block title %}Search - ADR{% endblock %}
+
+{% block header %}Search{% endblock %}
+
+{% block content %}
+    <section id="search-section">
+        <h2>Search Results</h2>
+        <p>You searched for: "{{ query }}"</p><br>
+        <div class="content-grid">
+            <ul>
+                {% for result in results %}
+                    <li>
+                        <a href="{{ result.get_absolute_url }}">
+                            {% if result.thumbnail %}
+                                <img src="{{ result.thumbnail.url }}" alt="{{ result.name }}">
+                            {% else %}
+                                <!-- Provide a placeholder image if no thumbnail is available -->
+                                <img src="{% static 'placeholder.jpg' %}" alt="Placeholder Image">
+                            {% endif %}
+                            {{ result.name }}
+                        </a>
+                    </li>
+                {% empty %}
+                    <li>Sorry! No results found...</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% endblock %}

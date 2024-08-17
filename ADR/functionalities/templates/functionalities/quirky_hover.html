@@ -1,0 +1,54 @@
+{% extends 'f_bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'functionalities/css/quirky_hover.css' %}"/>{% endblock %}
+
+{% block title %}Quirky Hover - ADR{% endblock %}
+
+{% block content %}
+    <h1>Quirky Hover</h1>
+    <h3>Get ready to unleash your inner quirkiness! Hover over these funny boxes to discover a surprise.</h3>
+    <div class="level">
+        <div class="level-indicator">Level 1</div>
+        <div class="progress-bar">
+            <div class="progress" style="width: 0%"></div>
+        </div>
+    </div>
+    <div class='container'>
+        <div class="funny-box">
+            <div class="funny-text">Hover me for a surprise!</div>
+        </div>
+        <div class="funny-box rotate">
+            <div class="funny-text">Spin me around!</div>
+        </div>
+        <div class="funny-box pulse">
+            <div class="funny-text">I'm pulsating!</div>
+        </div>
+        <div class="funny-box flip">
+            <div class="funny-text">Flip me!</div>
+        </div>
+        <div class="funny-box bounce">
+            <div class="funny-text">Bounce effect!</div>
+        </div>
+        <div class="funny-box shake">
+            <div class="funny-text">Shake it!</div>
+        </div>
+        <div class="funny-box color-changer">
+            <div class="funny-text">Color me surprised!</div>
+        </div>
+        <div class="funny-box joke-box">
+            <div class="funny-text">Knock knock!</div>
+            <div class="joke hidden">Who's there?</div>
+        </div>
+        <div class="funny-box quote-box">
+            <div class="funny-text">Words of wisdom...</div>
+            <div class="quote hidden">"Believe you can and you're halfway there." - Theodore Roosevelt</div>
+        </div>
+    </div>
+    <div class="rewards">
+        <div class="reward" data-reward="confetti">Confetti 🎉</div>
+        <div class="reward" data-reward="fireworks">Fireworks 🎊</div>
+        <div class="reward" data-reward="bonus-box">Bonus Box 🎁</div>
+    </div>
+{% endblock %}

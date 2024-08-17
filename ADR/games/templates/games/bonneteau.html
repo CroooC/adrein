@@ -1,0 +1,40 @@
+{% extends 'bases/base_min.html' %}
+
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'games/css/bonneteau.css' %}"/>{% endblock %}
+
+{% block title %}Bonneteau{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="titre">Bonneteau</h1>
+        <h3 class="slogan">If you find the red card you win, but if you find the black card you lose...</h3>
+        <div id="win-loss-counter">Wins: 0, Losses: 0</div>
+        <div class="cards">
+            <div class="card" onclick="flip(event)">
+                <div class="front">
+                    <img class="card-img" src="{% static 'games/img/black_card.png' %}" width="200">
+                </div>
+                <div class="back"></div>
+            </div>
+            <div class="card" onclick="flip(event)">
+                <div class="front">
+                    <img class="card-img" src="{% static 'games/img/black_card.png' %}" width="200">
+                </div>
+                <div class="back"></div>
+            </div>
+            <div class="card" onclick="flip(event)">
+                <div class="front">
+                    <img class="card-img" src="{% static 'games/img/black_card.png' %}" width="200">
+                </div>
+                <div class="back"></div>
+            </div>
+        </div>
+        <!-- boutton generer -->
+        <button id="btn">Reveal all the cards</button>
+    </div>
+
+    <script>var staticUrl = "{% static '' %}";</script>
+    <script src="{% static 'games/js/bonneteau.js' %}"></script>
+{% endblock %}

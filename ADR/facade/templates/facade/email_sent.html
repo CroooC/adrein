@@ -1,0 +1,16 @@
+{% extends 'bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'facade/css/index.css' %}"/>{% endblock %}
+
+{% block title %}Email - ADR{% endblock %}
+
+{% block header %}Email is sent?{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <h1>Email sent!</h1><br>
+        <p>We'll be back to you very soon.</p><br>
+    </div>
+{% endblock %}

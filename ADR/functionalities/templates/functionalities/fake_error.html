@@ -1,0 +1,22 @@
+{% extends 'f_bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'functionalities/css/fake_error.css' %}"/>{% endblock %}
+
+{% block title %}404 - Page Not Found{% endblock %}
+
+{% block content %}
+    <div id="error-container">
+        <div class="error-icon"></div>
+        <h1>404</h1>
+        <h2>Oops! Page Not Found</h2>
+        <p>We couldn't find the page you were looking for.</p>
+        <p>Looks like you've stumbled upon a black hole in the internet.</p>
+        <p>But don't worry, our highly trained hamsters are on the case.</p>
+        <p>They've put on their detective hats and are searching every nook and cranny of the web.</p>
+        <p>Feel free to contemplate the mysteries of the internet or check out some random cat images.</p>
+        <p>In the meantime, why not go back to the home page?</p><br>
+        <p class="bounce"><a href="https://placekitten.com/">HOMEPAGE</a></p>
+    </div>
+{% endblock %}

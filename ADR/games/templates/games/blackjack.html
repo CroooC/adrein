@@ -1,0 +1,76 @@
+{% extends 'bases/base_min.html' %}
+
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'games/css/blackjack.css' %}"/>{% endblock %}
+
+{% block title %}Blackjack{% endblock %}
+
+{% block content %}
+    <div id="screen">
+        <h1>Blackjack Game</h1>
+        <div id="table">
+            <div id="stats-column">
+                <div id="stats">
+                    <h2>Scoreboard</h2>
+                    <table id="score-table">
+                        <tr>
+                            <th>Wins</th>
+                            <td id="wins">0</td>
+                        </tr>
+                        <tr>
+                            <th>Losses</th>
+                            <td id="losses">0</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div id="game">
+                <div id="dealer">
+                    <h2>Dealer's Hand</h2>
+                    <div id="dealer-hand"></div>
+                    {% comment %} <p id="dealer-action"></p> {% endcomment %}
+                </div>
+                <div id="player">
+                    <h2>Your Hand</h2>
+                    <div id="player-hand"></div>
+                    <p>Total: <span id="player-total">0</span></p>
+                </div>
+                <div id="actions">
+                    <button id="hit">Hit</button>
+                    <button id="stand">Stand</button>
+                    <button id="reset">Reset</button>
+                </div>
+            </div>
+
+            <div id="result-column">
+                <div id="stats">
+                    <h2>Results</h2>
+                    <table id="score-table">
+                        <tr>
+                            <th id="result">Dealer Action</th>
+                        </tr>
+                        <tr>
+                            <td id="dealer-action"></td>
+                        </tr>
+                        <tr>
+                            <th id="result">Dealer Total</th>
+                        </tr>
+                        <tr>
+                            <td id="dealer-total"></td>
+                        </tr>
+                        <tr>
+                            <th id="result">Results</th>
+                        </tr>
+                        <tr>
+                            <td id="game-result"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <script src="{% static 'games/js/blackjack.js' %}"></script>
+    </div>
+{% endblock %}

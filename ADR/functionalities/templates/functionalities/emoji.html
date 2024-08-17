@@ -1,0 +1,31 @@
+{% extends 'f_bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'functionalities/css/emoji.css' %}"/>{% endblock %}
+
+{% block title %}Emoji Madness{% endblock %}
+
+{% block content %}
+    <div class="emoji-container">
+        <span class="emoji">😀</span>
+        <span class="emoji">😁</span>
+        <span class="emoji">😂</span>
+        <span class="emoji">😃</span>
+        <span class="emoji">😄</span>
+        <span class="emoji">😅</span>
+        <span class="emoji">😆</span>
+        <span class="emoji">😇</span>
+        <span class="emoji">😈</span>
+        <span class="emoji">😉</span>
+        <span class="emoji">😎</span>
+        <span class="emoji">🤓</span>
+        <span class="emoji">😭</span>
+        <span class="emoji">🤯</span>
+        <span class="emoji">😜</span>
+        <span class="emoji">🤩</span>
+        <span class="emoji">😳</span>
+        <span class="emoji">😵‍💫</span>
+        <!-- Add more emojis as needed -->
+    </div>
+{% endblock %}
