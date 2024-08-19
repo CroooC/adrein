@@ -14,7 +14,7 @@ class Game(models.Model):
     description = models.CharField(max_length=1000)
     active = models.BooleanField(default=True)
     link = models.fields.URLField(null=True, blank=True)
-    thumbnail = models.ImageField(upload_to='facade/static/facade/img/thumbnail/')
+    thumbnail = models.ImageField(upload_to='img/thumbnail/')
 
     def __str__(self):
         return f'{self.name}'
@@ -35,7 +35,7 @@ class Multi_Player(models.Model):
     description = models.CharField(max_length=1000)
     active = models.BooleanField(default=True)
     link = models.fields.URLField(null=True, blank=True)
-    thumbnail = models.ImageField(upload_to='facade/static/facade/img/thumbnail/')
+    thumbnail = models.ImageField(upload_to='img/thumbnail/')
 
     def __str__(self):
         return f'{self.name}'
@@ -48,7 +48,7 @@ class Functionality(models.Model):
     description = models.CharField(max_length=1000)
     active = models.BooleanField(default=True)
     link = models.fields.URLField(null=True, blank=True)
-    thumbnail = models.ImageField(upload_to='facade/static/facade/img/thumbnail/')
+    thumbnail = models.ImageField(upload_to='img/thumbnail/')
 
     def __str__(self):
         return f'{self.name}'
@@ -61,7 +61,7 @@ class App(models.Model):
     description = models.CharField(max_length=1000)
     active = models.BooleanField(default=True)
     link = models.fields.URLField(null=True, blank=True)
-    thumbnail = models.ImageField(upload_to='facade/static/facade/img/thumbnail/')
+    thumbnail = models.ImageField(upload_to='img/thumbnail/')
 
     def __str__(self):
         return f'{self.name}'
