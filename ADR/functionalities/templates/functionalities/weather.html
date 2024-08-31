@@ -1,0 +1,29 @@
+{% extends 'f_bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static 'functionalities/css/weather.css' %}"/>{% endblock %}
+
+{% block title %}Quirky Hover - ADR{% endblock %}
+
+{% block content %}
+    <section class="top-banner">
+        <div class="container">
+            <h1 class="heading">Simple Weather App</h1>
+            <form>
+                <input type="text" placeholder="Search for a city" autofocus>
+                <button type="submit">SUBMIT</button>
+                <span class="msg"></span>
+            </form>
+        </div>
+    </section>
+
+    <section class="ajax-section">
+        <div class="container">
+            <ul class="cities"></ul>
+        </div>
+    </section>
+
+    <script>const apiKey = '{{ api_key }}';</script>
+    <script src="{% static 'functionalities/js/weather.js' %}"></script>
+{% endblock %}

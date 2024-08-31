@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
     'easy_thumbnails',
     'imagekit',
+    'environ',
 
     'facade',
     'games',
@@ -238,3 +239,7 @@ X_FRAME_OPTIONS = 'DENY'
 SECURE_SSL_REDIRECT = False
 
 SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+
+
+# Weather API
+WEATHER_API_KEY = env('WEATHER_API_KEY')

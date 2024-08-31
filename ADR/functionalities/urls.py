@@ -7,4 +7,5 @@ urlpatterns = [
     path('emoji/', views.emoji_madness, name='emoji-madness'),
     path('gallery/', views.ascii, name='ascii'),
     path('goldberg/', views.goldberg, name='goldberg'),
+    path('weather/', views.weather, name='weather'),
 ]

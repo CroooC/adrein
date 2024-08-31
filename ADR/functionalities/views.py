@@ -1,4 +1,10 @@
+import environ
+
 from django.shortcuts import render
+from django.conf import settings
+
+env = environ.Env()
+environ.Env.read_env(env.str('ENV_FILE', '.env'))
 
 # Create your views here.
 
@@ -16,3 +22,7 @@ def ascii(request):
 
 def goldberg(request):
     return render(request, 'functionalities/goldberg.html')
+
+def weather(request):
+    api_key = env('WEATHER_API_KEY')
+    return render(request, 'functionalities/weather.html', {'api_key': api_key})
