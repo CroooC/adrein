@@ -32,15 +32,14 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
 
-    '.eu.pythonanywhere.com',
+    'adrein.pythonanywhere.com',
+
     'adreinn.eu.pythonanywhere.com',
 
-    '.vercel.app',
     'adrein-crooocs-projects.vercel.app',
     'adrein-6814mhox1-crooocs-projects.vercel.app',
     'adrein.vercel.app',
 
-    '.onrender.com',
     'adr-xz0o.onrender.com',
     ]
 
