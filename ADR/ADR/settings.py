@@ -34,7 +34,12 @@ ALLOWED_HOSTS = [
 
     '.pythonanywhere.com',
     'adrein.pythonanywhere.com',
-    'www.adrein.pythonanywhere.com'
+    'www.adrein.pythonanywhere.com',
+
+    'https://adrein.vercel.app',
+    'www.adrein.vercel.app',
+    '.vercel.app',
+    'adrein.vercel.app'
     ]
 
 
