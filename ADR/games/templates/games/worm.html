@@ -7,191 +7,44 @@
 {% block title %}Worm{% endblock %}
 
 {% block content %}
-    <p id="scoreDisplay">Score: 0</p>
-    <p id="topscoreDisplay">Top Score: 0</p>
-    <canvas id="gameCanvas" width="600" height="600"></canvas><br>
-    <div id="startScreen">
-        <h1>Worm</h1>
-        <button id="startGameBtn">Start Game</button>
+    <div id="table">
+        <div id="stats-column">
+            <div id="stats">
+                <h2>Scoreboard</h2>
+                <table id="score-table">
+                    <tr>
+                        <th>Score</th>
+                        <td id="scoreDisplay">0</td>
+                    </tr>
+                    <tr>
+                        <th>Top Score</th>
+                        <td id="topscoreDisplay">0</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        {% comment %} <p id="scoreDisplay">Score: 0</p>
+        <p id="topscoreDisplay">Top Score: 0</p> {% endcomment %}
+        <div id="game">
+            <canvas id="gameCanvas" width="600" height="600"></canvas><br>
+            <div id="startScreen">
+                <h1>Worm</h1>
+                <h3>You are a <span class="green-caps">green worm</span>,<br>
+                    And you must eat the <span class="red-caps">red apples</span>,<br>
+                    With the <b>WSAD</b> keys or the <b>Arrows</b> keys,<br>
+                    Without colliding with the walls...
+                </h3>
+                <button id="startGameBtn">Start Game</button>
+            </div>
+            <div id="gameOverScreen">
+                <h1>Game Over</h1>
+                <p id="finalScore"></p>
+                <button id="playAgainBtn">Play Again</button>
+            </div>
+        </div>
+
+        <div id="result-column"></div>
     </div>
-    <div id="gameOverScreen">
-        <h2>Game Over</h2>
-        <p id="finalScore"></p>
-        <button id="playAgainBtn">Play Again</button>
-    </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const canvas = document.getElementById('gameCanvas');
-            const context = canvas.getContext('2d');
-
-            // Game constants
-            const WINDOWWIDTH = 600;
-            const WINDOWHEIGHT = 600;
-            const TEXTCOLOR = 'white';
-            const BACKGROUNDCOLOR = 'black';
-            const CELL_SIZE = 30;
-            const CELLS_WIDE = WINDOWWIDTH / CELL_SIZE;
-            const CELLS_HIGH = WINDOWHEIGHT / CELL_SIZE;
-            const FPS = 10;
-
-            // Game variables
-            let topScore = 0;
-            let score = 0;
-            let wormCoords = [];
-            let appleCoord = {};
-            let moveLeft = moveRight = moveUp = moveDown = false;
-            let direction = moveRight;
-            let nextDirection = moveRight;
-            let gameActive = false;
-
-            // Sounds
-            //const gameOverSound = new Audio('gameover.wav');
-
-            // Functions
-            function drawText(text, x, y) {
-                context.fillStyle = TEXTCOLOR;
-                context.font = '28px Arial';
-                context.fillText(text, x, y);
-            }
-
-            function drawGrid() {
-                context.strokeStyle = 'darkgray';
-                for (let x = 0; x <= WINDOWWIDTH; x += CELL_SIZE) {
-                    context.beginPath();
-                    context.moveTo(x, 0);
-                    context.lineTo(x, WINDOWHEIGHT);
-                    context.stroke();
-                }
-                for (let y = 0; y <= WINDOWHEIGHT; y += CELL_SIZE) {
-                    context.beginPath();
-                    context.moveTo(0, y);
-                    context.lineTo(WINDOWWIDTH, y);
-                    context.stroke();
-                }
-            }
-
-            function drawApple(coord) {
-                context.fillStyle = 'red';
-                context.fillRect(coord.x * CELL_SIZE, coord.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
-            }
-
-            function drawWorm() {
-                context.fillStyle = 'green';
-                for (let i = 0; i < wormCoords.length; i++) {
-                    const { x, y } = wormCoords[i];
-                    context.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
-                }
-            }
-
-            function placeApple() {
-                appleCoord = {
-                    x: Math.floor(Math.random() * CELLS_WIDE),
-                    y: Math.floor(Math.random() * CELLS_HIGH)
-                };
-            }
-
-            function resetGame() {
-                //gameOverSound.pause();
-                //gameOverSound.currentTime = 0;
-                moveLeft = moveRight = moveUp = moveDown = false;
-                direction = moveRight;
-                nextDirection = moveRight;
-                score = 0;
-                wormCoords = [];
-                placeApple();
-                gameActive = false;
-                gameOverScreen.style.display = 'none';
-                startScreen.style.display = 'flex';
-            }
-
-            function checkCollision() {
-                if (
-                    wormCoords[0].x < 0 ||
-                    wormCoords[0].x >= CELLS_WIDE ||
-                    wormCoords[0].y < 0 ||
-                    wormCoords[0].y >= CELLS_HIGH
-                ) {
-                    return true;
-                }
-
-                for (let i = 1; i < wormCoords.length; i++) {
-                    if (wormCoords[i].x === wormCoords[0].x && wormCoords[i].y === wormCoords[0].y) {
-                        return true;
-                    }
-                }
-
-                return false;
-            }
-
-            function checkAppleCollision() {
-                if (wormCoords[0].x === appleCoord.x && wormCoords[0].y === appleCoord.y) {
-                    score++;
-                    wormCoords.push({});
-                    placeApple();
-                }
-            }
-
-            function animate() {
-                if (!gameActive) return;
-
-                // Move the worm
-                for (let i = wormCoords.length - 1; i > 0; i--) {
-                    wormCoords[i].x = wormCoords[i - 1].x;
-                    wormCoords[i].y = wormCoords[i - 1].y;
-                }
-
-                if (direction === 'left') wormCoords[0].x--;
-                if (direction === 'up') wormCoords[0].y--;
-                if (direction === 'right') wormCoords[0].x++;
-                if (direction === 'down') wormCoords[0].y++;
-
-                if (checkCollision()) {
-                    gameActive = false;
-                    gameOverScreen.style.display = 'flex';
-                    document.getElementById('finalScore').textContent = `Final Score: ${score}`;
-                    if (score > topScore) {
-                        topScore = score;
-                    }
-                    //gameOverSound.play();
-                    return;
-                }
-
-                checkAppleCollision();
-
-                context.clearRect(0, 0, WINDOWWIDTH, WINDOWHEIGHT);
-                context.fillStyle = BACKGROUNDCOLOR;
-                context.fillRect(0, 0, WINDOWWIDTH, WINDOWHEIGHT);
-                drawGrid();
-                drawApple(appleCoord);
-                drawWorm();
-
-                setTimeout(() => requestAnimationFrame(animate), 1000 / FPS);
-            }
-
-            // Event listeners
-            document.getElementById('startGameBtn').addEventListener('click', () => {
-                gameActive = true;
-                wormCoords = [{ x: 10, y: 10 }];
-                placeApple();
-                startScreen.style.display = 'none';
-                animate();
-            });
-
-            document.addEventListener('keydown', (event) => {
-                if (!gameActive) return;
-
-                const key = event.key.toLowerCase();
-                if (key === 'arrowleft' && direction !== 'right') direction = 'left';
-                if (key === 'arrowup' && direction !== 'down') direction = 'up';
-                if (key === 'arrowright' && direction !== 'left') direction = 'right';
-                if (key === 'arrowdown' && direction !== 'up') direction = 'down';
-            });
-
-            document.getElementById('playAgainBtn').addEventListener('click', resetGame);
-
-            // Show start screen
-            document.getElementById('startScreen').style.display = 'flex';
-        });
-    </script>
+    <script src="{% static 'games/js/worm.js' %}"></script>
 {% endblock %}

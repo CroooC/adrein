@@ -7,6 +7,8 @@ main {
     min-height: 90vh;
 }
 
+/* General */
+
 h1 {
     text-align: center;
     color: #fff ;
@@ -54,6 +56,8 @@ button:disabled {
     cursor: not-allowed;
 }
 
+/* Table */
+
 #screen {
     background-image: url(../img/dark_wood_bg_2.jpg);
     background-repeat: repeat;
@@ -79,6 +83,8 @@ button:disabled {
     max-width: 60rem;
     /* height: 30rem; */
 }
+
+/* Scoreboard */
 
 #stats-column {
     grid-column: 1;
@@ -120,6 +126,8 @@ button:disabled {
 #result-column {
     grid-column: 3;
 }
+
+/* Cards */
 
 #dealer-hand,
 #player-hand {
