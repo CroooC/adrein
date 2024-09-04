@@ -65,11 +65,17 @@ section a:hover {
 }
 
 #welcome-section, #apps-section, #games-section, #multi-games-section, #functionalities-section, #search-section {
-    margin: 5em auto 1em auto;
+    margin: 3em auto 1em auto;
     text-align: center;
     border: 0.125em solid #fff;
     border-radius: 0.3em;
     width: 70%;
+}
+
+#version p {
+    color: #666;
+    text-align: right;
+    padding: 3rem 0.5rem 0 0;
 }
 
 
