@@ -9,74 +9,76 @@
 {% comment %} {% block header %}Welcome to My Web Project{% endblock %} {% endcomment %}
 
 {% block content %}
-    <section id="welcome-section">
-        <h1>Welcome to My Web Project!</h1><br>
-        <p>This my portfolio of what I can do in HTML, CSS, JS and Python on a web app.<br>
-        What will you find here? Some mini-games, funny fonctionnalities, apps, strange web pages and more... I let you explore the rest by your own ;)<br>
-        Explore my games, apps, fun functionalities and webpages.</p><br>
-        <br>
-        <h3>NEW features!!!</h3>
-        <ul>
-            <li>07/08/2024 - Web site is LIVE!!!</li>
-            <li>09/08/2024 - Search bar in the header works!</li>
-            <li>11/08/2024 - Loading page and contact by email have been added!</li>
-            <li>12/08/2024 - Bonneteau game is now correctly working!</li>
-            <li>14/08/2024 - Quote generator is now wiser than me...</li>
-            <li>16/08/2024 - Now you can loose your money playing my blackjack game</li>
-            <li>31/08/2024 - New App! The weather sation!</li>
-            <li>01/09/2024 - Finishing the games Worm, Tetris, Hangman and Dodger</li>
-        </ul>
-    </section>
+    <div id="home-page">
+        <section id="welcome-section">
+            <h1>Welcome to My Web Project!</h1><br>
+            <p>This my portfolio of what I can do in HTML, CSS, JS and Python on a web app.<br>
+            What will you find here? Some mini-games, funny fonctionnalities, apps, strange web pages and more... I let you explore the rest by your own ;)<br>
+            Explore my games, apps, fun functionalities and webpages.</p><br>
+            <br>
+            <h3>NEW features!!!</h3>
+            <ul>
+                <li>07/08/2024 - Web site is LIVE!!!</li>
+                <li>09/08/2024 - Search bar in the header works!</li>
+                <li>11/08/2024 - Loading page and contact by email have been added!</li>
+                <li>12/08/2024 - Bonneteau game is now correctly working!</li>
+                <li>14/08/2024 - Quote generator is now wiser than me...</li>
+                <li>16/08/2024 - Now you can loose your money playing my blackjack game</li>
+                <li>31/08/2024 - New App! The weather sation!</li>
+                <li>01/09/2024 - Finishing the games Worm, Tetris, Hangman and Dodger</li>
+            </ul>
+        </section>
 
-    <section id="games-section">
-        <h2>Mini-Games</h2>
-        <div class="content-grid">
-            {% for game in game_list %}
-                <a href="{% url 'game-detail' game.id %}">
-                    <img src="{{ game.thumbnail.url }}" alt="{{ game.name }}">
-                    <h3>{{ game.name }}</h3>
-                    {% comment %} <p>{{ game.description }}</p> {% endcomment %}
-                </a>
-            {% endfor %}
-        </div>
-    </section>
+        <section id="games-section">
+            <h2>Mini-Games</h2>
+            <div class="content-grid">
+                {% for game in game_list %}
+                    <a href="{% url 'game-detail' game.id %}">
+                        <img src="{{ game.thumbnail.url }}" alt="{{ game.name }}">
+                        <h3>{{ game.name }}</h3>
+                        {% comment %} <p>{{ game.description }}</p> {% endcomment %}
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
 
-    <section id="multi-games-section">
-        <h2>MultiPlayers Mini-Games</h2>
-        <div class="content-grid">
-            {% for multi_game in multi_game_list %}
-                <a href="{% url 'multi-game-detail' multi_game.id %}">
-                    <img src="{{ multi_game.thumbnail.url }}" alt="{{ multi_game.name }}">
-                    <h3>{{ multi_game.name }}</h3>
-                    {% comment %} <p>{{ multi_game.description }}</p> {% endcomment %}
-                </a>
-            {% endfor %}
-        </div>
-    </section>
+        <section id="multi-games-section">
+            <h2>MultiPlayers Mini-Games</h2>
+            <div class="content-grid">
+                {% for multi_game in multi_game_list %}
+                    <a href="{% url 'multi-game-detail' multi_game.id %}">
+                        <img src="{{ multi_game.thumbnail.url }}" alt="{{ multi_game.name }}">
+                        <h3>{{ multi_game.name }}</h3>
+                        {% comment %} <p>{{ multi_game.description }}</p> {% endcomment %}
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
 
-    <section id="apps-section">
-        <h2>Web Apps</h2>
-        <div class="content-grid">
-            {% for app in app_list %}
-                <a href="{% url 'app-detail' app.id %}">
-                    <img src="{{ app.thumbnail.url }}" alt="{{ app.name }}">
-                    <h3>{{ app.name }}</h3>
-                    {% comment %} <p>{{ app.description }}</p> {% endcomment %}
-                </a>
-            {% endfor %}
-        </div>
-    </section>
+        <section id="apps-section">
+            <h2>Web Apps</h2>
+            <div class="content-grid">
+                {% for app in app_list %}
+                    <a href="{% url 'app-detail' app.id %}">
+                        <img src="{{ app.thumbnail.url }}" alt="{{ app.name }}">
+                        <h3>{{ app.name }}</h3>
+                        {% comment %} <p>{{ app.description }}</p> {% endcomment %}
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
 
-    <section id="functionalities-section">
-        <h2>Functionalities</h2>
-        <div class="content-grid">
-            {% for functionality in functionality_list %}
-                <a href="{% url 'functionality-detail' functionality.id %}">
-                    <img src="{{ functionality.thumbnail.url }}" alt="{{ functionality.name }}">
-                    <h3>{{ functionality.name }}</h3>
-                    {% comment %} <p>{{ functionality.description }}</p> {% endcomment %}
-                </a>
-            {% endfor %}
-        </div>
-    </section>
+        <section id="functionalities-section">
+            <h2>Functionalities</h2>
+            <div class="content-grid">
+                {% for functionality in functionality_list %}
+                    <a href="{% url 'functionality-detail' functionality.id %}">
+                        <img src="{{ functionality.thumbnail.url }}" alt="{{ functionality.name }}">
+                        <h3>{{ functionality.name }}</h3>
+                        {% comment %} <p>{{ functionality.description }}</p> {% endcomment %}
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
 {% endblock %}

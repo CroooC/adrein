@@ -44,10 +44,9 @@ ul, li {
 /* Section */
 
 section {
-    text-align: center;
-    margin: 1em 0;
-    border: 0.125em solid #fff;
-    border-radius: 0.3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 section a {
@@ -66,7 +65,11 @@ section a:hover {
 }
 
 #welcome-section, #apps-section, #games-section, #multi-games-section, #functionalities-section, #search-section {
-    margin: 5em 0 1em;
+    margin: 5em auto 1em auto;
+    text-align: center;
+    border: 0.125em solid #fff;
+    border-radius: 0.3em;
+    width: 70%;
 }
 
 
