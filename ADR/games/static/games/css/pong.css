@@ -9,9 +9,10 @@ main {
 }
 
 #myCanvas {
+    height: 600px;
+    width: 800px;
     border: 2px solid #fff;
     background-color: #000;
-    /* display: block; */
     margin: 20px auto;
 }
 
@@ -23,19 +24,14 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    /* display: none; */
     color: white;
-    font-size: 28px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-#startScreen h1,
-#gameOverScreen h1,
-#pauseScreen h1 {
-    margin: 0;
-    font-size: 36px;
+#gameOverScreen p {
+    padding-bottom: 3rem;
 }
 
 #startGameBtn,

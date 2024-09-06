@@ -7,66 +7,17 @@
 {% block title %}Rube Goldberg Machine{% endblock %}
 
 {% block content %}
+    <h2>Work in progress...</h2>
     <h1>Very Simple Goldberg Machine</h1>
-    <div id="machine">
+    <div class="machine">
         <div class="ball" id="ball"></div>
         <div class="ramp" id="ramp"></div>
         <div class="domino" id="domino"></div>
         <div class="hammer" id="hammer"></div>
         <div class="target" id="target"></div>
+        <div class="track" id="track"></div>
+        <div class="pulley" id="pulley"></div>
+        <div class="lever" id="lever"></div>
         <!-- Add more elements for your Goldberg Machine -->
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          const ball = document.getElementById('ball');
-          const ramp = document.getElementById('ramp');
-          const domino = document.getElementById('domino');
-          const hammer = document.getElementById('hammer');
-          const target = document.getElementById('target');
-
-          // Define animations with delays
-          const ballFallAnimation = () => {
-            setTimeout(() => {
-              ball.style.transition = 'top 2s ease-in-out'; // Smooth transition over 2 seconds with ease-in-out timing function
-              ball.style.top = '250px';
-            }, 0);
-          };
-
-          const rampRotateAnimation = () => {
-            setTimeout(() => {
-              ramp.style.transition = 'transform 1s'; // Smooth transition over 1 second
-              ramp.style.transform = 'rotate(0deg)';
-            }, 2000);
-          };
-
-          const dominoKnockOverAnimation = () => {
-            setTimeout(() => {
-              domino.style.transition = 'transform 1s'; // Smooth transition over 1 second
-              domino.style.transform = 'rotate(90deg)';
-            }, 3000);
-          };
-
-          const hammerHitAnimation = () => {
-            setTimeout(() => {
-              hammer.style.transition = 'transform 0.5s'; // Smooth transition over 0.5 seconds
-              hammer.style.transform = 'rotate(-90deg)';
-            }, 4000);
-          };
-
-          const targetDisappearAnimation = () => {
-            setTimeout(() => {
-              target.style.transition = 'opacity 1s'; // Smooth opacity transition over 1 second
-              target.style.opacity = '0';
-            }, 4500);
-          };
-
-          // Start the animations sequentially
-          ballFallAnimation();
-          rampRotateAnimation();
-          dominoKnockOverAnimation();
-          hammerHitAnimation();
-          targetDisappearAnimation();
-        });
-    </script>
 {% endblock %}

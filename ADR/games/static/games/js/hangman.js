@@ -22,7 +22,7 @@ function setup() {
 
 function displayWord() {
     const wordContainer = document.getElementById('word-container');
-    wordContainer.innerHTML = '/';
+    wordContainer.innerHTML = '';
     word.split('').forEach(letter => {
         const span = document.createElement('span');
         span.textContent = usedLetters.has(letter) ? letter : '-';

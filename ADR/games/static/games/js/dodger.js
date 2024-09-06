@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let baddies = [];
     let reverseCheat = slowCheat = false;
     let baddieAddCounter = 0;
-    let gameActive = false;
+    let paused = false;
 
     // Sounds
     //const gameOverSound = new Audio('gameover.wav');
@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function waitForPlayerToPressKey() {
-        if (!gameActive) {
-            gameActive = true;
+        if (!paused) {
+            paused = true;
             startScreen.style.display = 'none';
             animate();
         }
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         score = 0;
         playerRect = { x: WINDOWWIDTH / 2, y: WINDOWHEIGHT - 50, width: 50, height: 50 };
         baddies = [];
-        gameActive = false;
+        paused = false;
         gameOverScreen.style.display = 'none';
         startScreen.style.display = 'flex';
     }
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
             resetGame();
-        } else if (!gameActive) {
+        } else if (!paused) {
             waitForPlayerToPressKey();
         } else {
             if (event.key === 'ArrowLeft' || event.key === 'a') {
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.addEventListener('keyup', (event) => {
-        if (gameActive) {
+        if (paused) {
             if (event.key === 'ArrowLeft' || event.key === 'a') {
                 moveLeft = false;
             }
