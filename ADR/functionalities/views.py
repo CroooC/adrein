@@ -22,9 +22,6 @@ def quirky_hover(request):
 def fake_error(request):
     return render(request, 'functionalities/fake_error.html')
 
-def goldberg(request):
-    return render(request, 'functionalities/goldberg.html')
-
 def revision_sheet_builder(request):
     print("revision_sheet_builder view called")
     if request.method == 'POST':
