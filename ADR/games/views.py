@@ -9,9 +9,6 @@ def blackjack(request):
 def hangman(request):
     return render(request, 'games/hangman.html')
 
-def guess_nb(request):
-    return render(request, 'games/guess_nb.html')
-
 def dodger(request):
     return render(request, 'games/dodger.html')
 

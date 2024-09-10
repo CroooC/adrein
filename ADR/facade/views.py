@@ -15,6 +15,7 @@ from .models import Game, Functionality, App, Multi_Player
 from mailjet_rest import Client
 
 logger = logging.getLogger('django.security')
+
 env = environ.Env()
 environ.Env.read_env(env.str('ENV_FILE', '.env'))
 

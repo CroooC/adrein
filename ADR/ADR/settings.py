@@ -208,6 +208,30 @@ SESSION_COOKIE_HTTPONLY = True
 HTTPONLY_COOKIE = True
 
 
+# X-Frame Options
+
+X_FRAME_OPTIONS = 'DENY'
+
+
+# SSL/TLS
+
+SECURE_SSL_REDIRECT = False
+
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+
+
+# Weather API
+WEATHER_API_KEY = env('WEATHER_API_KEY')
+
+
+# Groq API
+GROQ_API_KEY = env('GROQ_API_KEY')
+
+
+# PDF Upload directory
+# PDF_UPLOAD_DIR = 'uploads/pdfs/'
+
+
 # Loggings
 
 LOGGING = {
@@ -232,19 +256,3 @@ LOGGING = {
         },
     }
 }
-
-
-# X-Frame Options
-
-X_FRAME_OPTIONS = 'DENY'
-
-
-# SSL/TLS
-
-SECURE_SSL_REDIRECT = False
-
-SECURE_HSTS_INCLUDE_SUBDOMAINS = False
-
-
-# Weather API
-WEATHER_API_KEY = env('WEATHER_API_KEY')

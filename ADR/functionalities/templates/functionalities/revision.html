@@ -1,0 +1,45 @@
+{% extends 'f_bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'functionalities/css/revision.css' %}"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.3.8/dist/purify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+
+{% block title %}Revision Sheet Builder{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Revision Sheet Builder</h1>
+        <form id="pdf-upload-form">
+            {% comment %} {% csrf_token %} {% endcomment %}
+            <input type="file" id="pdf-file" accept="application/pdf">
+            <button id="upload-pdf-button">Upload PDF</button>
+            <p id="loading" style="display: none">Wait a little more, the file is being synthetized...</p>
+        </form>
+        <div class="revision-text">
+            <h2 id="revision-text-header" style="display: none;">Revision Summary:</h2>
+            <button id="show-preview-button" style="display: none;">Show/Hide approximate pdf output format</button>
+            <div class="size-button">
+                <button id="small-button" style="display: none;">Small text</button>
+                <button id="medium-button" style="display: none;">Medium text</button>
+                <button id="large-button" style="display: none;">Large text</button>
+            </div>
+            <div id="pdf-slider" style="display: none;">
+                <label for="width-slider">Scale: </label>
+                <span id="slider-value">0.2</span>
+                <input type="range" id="width-slider" min="0.1" max="0.4" value="0.2" step="0.01">
+            </div>
+            <div id="preview" style="display: none;"></div>
+            <p id="revision-text-content"></p>
+            <button id="download-button" style="display: none;">Download Revision Sheet</button>
+        </div>
+    </div>
+
+    <script>var csrfToken = "{{ csrf_token }}";</script>
+    <script>const revisionSheetBuilderUrl = "{% url 'revision_sheet_builder' %}";</script>
+    <script src="{% static 'functionalities/js/revision.js' %}"></script>
+{% endblock %}

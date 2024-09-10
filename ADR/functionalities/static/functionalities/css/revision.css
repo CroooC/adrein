@@ -1,0 +1,104 @@
+main {
+    padding: 0;
+    margin: 0;
+    min-height: 94vh;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 90%;
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 0.625rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+}
+
+.container h1, form {
+    text-align: center;
+}
+
+.container h1 {
+    margin: 1rem 0;
+}
+
+#pdf-file {
+    cursor: pointer;
+    border: 1px solid #51d345;
+    border-radius: 0.3125rem;
+}
+
+#download-button,
+#show-preview-button,
+#upload-pdf-button,
+#small-button,
+#medium-button,
+#large-button {
+    padding: 0.625rem 3rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    background-color: #51d345;
+    color: #fff;
+    border: none;
+    border-radius: 0.3125rem;
+    transition: background-color 0.3s ease;
+}
+
+#download-buttn:hover,
+#show-preview-button:hover,
+#upload-pdf-button:hover,
+#small-button:hover,
+#medium-button:hover,
+#large-button:hover {
+    background-color: #3e8e41;
+}
+
+.size-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#loading {
+    font-size: large;
+    /* color: #ff2424; */
+}
+
+.revision-text {
+    margin: 1rem auto;
+    width: 90%;
+}
+
+.revision-text h2 {
+    text-align: center;
+}
+
+#revision-text-content {
+    margin: 4rem 3rem;
+}
+
+#revision-text-content p {
+    font-size: 11px;
+}
+
+#revision-text-content h3 {
+    font-size: 14px;
+}
+
+#preview {
+    position: absolute;
+    border: 1px solid #fd0000;
+    padding: 10px;
+    width: var(--pdf-width);
+    height: calc(1.41 * var(--pdf-width));
+    /* max-height: #revision-text-content width; */
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+}
+
+:root {
+    --pdf-width: 241mm;
+}
