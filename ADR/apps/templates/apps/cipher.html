@@ -1,0 +1,56 @@
+{% extends 'a_bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'apps/css/cipher.css' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Crypting{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="title">Cipher Hack</h1>
+        <form method="post" id="form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="text">Text to Encrypt/Decrypt:</label>
+                <textarea id="text" name="text" rows="4" placeholder="Enter your secret message..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="shift">Shift (Caesar Cipher):</label>
+                <input type="number" id="shift" name="shift" value="0">
+            </div>
+            <div class="form-group">
+                <label for="keyword">Keyword (Vigenère Cipher):</label>
+                <input type="text" id="keyword" name="keyword" placeholder="Enter keyword...">
+                <small id="keywordError" style="color: red; display: none;">Keyword must contain only letters.</small>
+            </div>
+            <div class="form-group-radio">
+                <input type="radio" id="encrypt" name="operation" value="encrypt">
+                <label for="encrypt">Encrypt</label>
+                <input type="radio" id="decrypt" name="operation" value="decrypt">
+                <label for="decrypt">Decrypt</label>
+            </div>
+            <input type="submit" value="Apply" class="btn">
+        </form>
+
+        <div class="result">
+            {% if result %}
+                <p class="output">Result: <br>{{ result }}</p>
+            {% endif %}
+            {% if error %}
+                <p class="error">Error: <br>{{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+    {% comment %} <script>var csrfToken = "{{ csrf_token }}";</script>
+    <script>const cipherUrl = "{% url 'cipher' %}";</script> {% endcomment %}
+    <script src="{% static 'apps/js/cipher.js' %}"></script>
+{% endblock %}

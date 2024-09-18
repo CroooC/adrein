@@ -1,4 +1,3 @@
-import environ
 import os
 import PyPDF2
 import tempfile
@@ -9,10 +8,6 @@ from django.template import Context
 from django.shortcuts import render
 from django.conf import settings
 from groq import Groq
-
-
-# env = environ.Env()
-# environ.Env.read_env(env.str('ENV_FILE', '.env'))
 
 # Create your views here.
 
@@ -43,6 +38,7 @@ def revision_sheet_builder(request):
             print("Summary generated!")
             # Return the summary as a JSON response
             return JsonResponse({'summary': summary})
+
     return render(request, 'functionalities/revision.html')
 
 def call_groq_api(tokens):
