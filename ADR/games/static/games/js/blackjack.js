@@ -1,4 +1,3 @@
-// JavaScript code for the Blackjack game
 document.addEventListener("DOMContentLoaded", function () {
     const winsElement = document.getElementById("wins");
     const lossesElement = document.getElementById("losses");
@@ -53,7 +52,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderCard(card, element) {
         const cardElement = document.createElement('div');
-        cardElement.textContent = `${card.value} of ${card.suit}`;
+
+        // Convert card value and suit to match the image naming convention
+        const valueMap = {
+            '2': '02',
+            '3': '03',
+            '4': '04',
+            '5': '05',
+            '6': '06',
+            '7': '07',
+            '8': '08',
+            '9': '09',
+            '10': '10',
+            'Jack': 'J',
+            'Queen': 'Q',
+            'King': 'K',
+            'Ace': 'A'
+        };
+
+        const suitMap = {
+            'Hearts': 'hearts',
+            'Diamonds': 'diamonds',
+            'Clubs': 'clubs',
+            'Spades': 'spades'
+        };
+
+        const imgElement = document.createElement('img');
+
+        // Construct the image filename based on the value and suit
+        const valueKey = valueMap[card.value]; // e.g., '02' for '2'
+        const suitKey = suitMap[card.suit]; // e.g., 'clubs' for 'Clubs'
+
+        // Set the source for the card image
+        imgElement.src = `/static/games/img/cards/card_${suitKey}_${valueKey}.png`; // Adjust the path accordingly
+        imgElement.alt = `${card.value} of ${card.suit}`;
+        imgElement.classList.add('card'); // Add a class for styling if needed
+
+        // Append the img element to the card element
+        cardElement.appendChild(imgElement);
+        //cardElement.textContent = `${card.value} of ${card.suit}`;
+
+        // Append the card element to the specified element
         element.appendChild(cardElement);
     }
 

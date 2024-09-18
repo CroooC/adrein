@@ -59,9 +59,9 @@ button:disabled {
 /* Table */
 
 #screen {
-    background-image: url(../img/dark_wood_bg_2.jpg);
+    background-image: url(../img/bg_red.png);
     background-repeat: repeat;
-    background-size: cover;
+    background-size: auto;
 }
 
 #table {
@@ -74,7 +74,7 @@ button:disabled {
 #game {
     padding: 1rem;
     margin: 0 auto;
-    background-image: url(../img/green_poker.jpg);
+    background-image: url(../img/bg_green.png);
     background-repeat: repeat;
     background-size: cover;
     border-radius: 1rem;
@@ -140,18 +140,24 @@ button:disabled {
 
 #dealer-hand div,
 #player-hand div {
-    width: 5rem;
-    height: 7.5rem;
+    width: 8rem;
+    height: 8rem;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 0.3125rem;
-    padding: 0.625rem;
+    /* padding: 0.625rem; */
     box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
+#dealer-hand img,
+#player-hand img {
+    width: 8rem;
+    height: 8rem;
+}
+
 #player p {
-    color: #ff3a3a;
+    color: #fff;
 }
 
 #player-total {

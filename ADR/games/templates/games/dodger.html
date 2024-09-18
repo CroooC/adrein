@@ -11,8 +11,8 @@
     <canvas id="gameCanvas" width="1000" height="600"></canvas>
     <div id="startScreen">
         <h1>Dodger</h1>
-        <h3>You are the white <span class="white-caps">square</span>,<br>
-            And you must dodge the red <span class="red-caps">squares</span>,<br>
+        <h3>You are the white <span class="white-caps">spaceship</span>,<br>
+            And you must dodge the <span class="red-caps">meteors</span>,<br>
             With the <b>WSAD</b> keys or the <b>Arrows</b> keys!
         </h3>
         <button id="startGameBtn">Start Game</button>
@@ -23,5 +23,40 @@
         <button id="playAgainBtn">Play Again</button>
     </div>
 
+    <script type="text/javascript">
+        const backgroundImgSrc = "{% static 'games/img/blue.png' %}";
+        const playerImgSrc = "{% static 'games/img/playerShip2_orange.png' %}";
+
+        const meteorImagesSrc = {
+            big: [
+                "{% static 'games/img/Meteors/meteorBrown_big1.png' %}",
+                "{% static 'games/img/Meteors/meteorBrown_big2.png' %}",
+                "{% static 'games/img/Meteors/meteorBrown_big3.png' %}",
+                "{% static 'games/img/Meteors/meteorBrown_big4.png' %}",
+                "{% static 'games/img/Meteors/meteorGrey_big1.png' %}",
+                "{% static 'games/img/Meteors/meteorGrey_big2.png' %}",
+                "{% static 'games/img/Meteors/meteorGrey_big3.png' %}",
+                "{% static 'games/img/Meteors/meteorGrey_big4.png' %}"
+            ],
+            medium: [
+                "{% static 'games/img/Meteors/meteorBrown_med1.png' %}",
+                "{% static 'games/img/Meteors/meteorBrown_med3.png' %}",
+                "{% static 'games/img/Meteors/meteorGrey_med1.png' %}",
+                "{% static 'games/img/Meteors/meteorGrey_med2.png' %}"
+            ],
+            small: [
+                "{% static 'games/img/Meteors/meteorBrown_small1.png' %}",
+                "{% static 'games/img/Meteors/meteorBrown_small2.png' %}",
+                "{% static 'games/img/Meteors/meteorGrey_small1.png' %}",
+                "{% static 'games/img/Meteors/meteorGrey_small2.png' %}"
+            ],
+            tiny: [
+                "{% static 'games/img/Meteors/meteorBrown_tiny1.png' %}",
+                "{% static 'games/img/Meteors/meteorBrown_tiny2.png' %}",
+                "{% static 'games/img/Meteors/meteorGrey_tiny1.png' %}",
+                "{% static 'games/img/Meteors/meteorGrey_tiny2.png' %}"
+            ]
+        };
+    </script>
     <script src="{% static 'games/js/dodger.js' %}"></script>
 {% endblock %}
