@@ -163,6 +163,12 @@ main {
     margin: 0;
 }
 
+#version p {
+    color: #666;
+    text-align: right;
+    padding: 2.7rem 0.5rem 0 0;
+}
+
 /* Footer */
 
 footer {

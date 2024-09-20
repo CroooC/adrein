@@ -2,7 +2,12 @@
 
 {% load static %}
 
-{% block styles %}<link rel="stylesheet" href="{% static 'functionalities/css/fake_error.css' %}"/>{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'functionalities/css/fake_error.css' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap" rel="stylesheet">
+{% endblock %}
 
 {% block title %}404 - Page Not Found{% endblock %}
 
@@ -15,8 +20,17 @@
         <p>Looks like you've stumbled upon a black hole in the internet.</p>
         <p>But don't worry, our highly trained hamsters are on the case.</p>
         <p>They've put on their detective hats and are searching every nook and cranny of the web.</p>
-        <p>Feel free to contemplate the mysteries of the internet or check out some random cat images.</p>
+        <p>Feel free to contemplate the <span class="hover-word" id="mystery-word">mysteries</span> of the internet or check out some random cat images.</p>
         <p>In the meantime, why not go back to the home page?</p><br>
-        <p class="bounce"><a href="https://placekitten.com/">HOMEPAGE</a></p>
+        <p class="bounce"><a href="https://placekitten.com/">HOME PAGE</a></p>
     </div>
+    <div class="hidden-text" id="hidden-hint" style="display: none">
+        <h3>Hello! Welcome to the game for the most highly intelligent individuals.</h3>
+        <p>If you finish the game you will be rewarded!</p>
+        <p>All the tools that you need to finish the game are on this website</p>
+        <p>First, begin to learn about where you are.</p>
+        <h2>1418</h2>
+    </div>
+
+    <script src="{% static 'functionalities/js/fake_error.js' %}"></script>
 {% endblock %}

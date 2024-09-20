@@ -9,15 +9,16 @@
 {% block header %}Quote{% endblock %}
 
 {% block content %}
+    <h1>Quote Generator</h1>
     <div class="blockquote-wrapper">
         <div class="blockquote">
-            <h1 id="citation">A variable is something that can vary</h1>
+            <h1 id="citation">This is the best quote list</h1>
             <img id="avatar" alt="Avatar de Graven" src="{% static 'apps/img/chevalier.jpg' %}">
-            <h4 id="nom">Graven</h4>
+            <h4 id="nom">ADR</h4>
         </div>
     </div>
 
-    <button id="btn">Générer</button>
+    <button id="btn">Generate</button>
 
     <script>
         var citUrl = "{% static 'apps/js/citations.json' %}";

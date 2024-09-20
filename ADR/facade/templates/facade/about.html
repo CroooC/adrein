@@ -2,7 +2,12 @@
 
 {% load static %}
 
-{% block styles %}<link rel="stylesheet" href="{% static 'facade/css/index.css' %}"/>{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'facade/css/index.css' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap" rel="stylesheet">
+{% endblock %}
 
 {% block title %}About - ADR{% endblock %}
 
@@ -22,9 +27,16 @@
             <h3>Wait?! What is all of this??</h3><br>
             <p>
                 This is nothing serious... the aim of this website is to train me and challenge me over programming projects and also show you what I can make and most important what I can't make...<br>
-                What will you find here? Some mini-games, funny fonctionnalities, strange web pages and more... I let you explore the rest by your own ;)<br>
+                What will you find here? Some mini-games, funny fonctionnalities, strange web pages and more... I let you explore the rest by your own!<br>
                 For now, this web site is mainly coded in Python, HTML and CSS and a little bit of JS (because I don't know this language yet)
             </p><br>
+            <br>
+            <div id="hint">
+                <p id="hidden-text">
+                    To unlock the next clue, search for HINT...
+                    1418
+                </p>
+            </div>
             <br>
             <h3>What next?! A Roadmap...</h3><br>
             <p>
@@ -37,4 +49,6 @@
             <p>Have fun!!!</p><br>
         </div>
     </div>
+
+    <script src="{% static 'facade/js/about.js' %}"></script>
 {% endblock %}

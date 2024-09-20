@@ -11,6 +11,11 @@ main {
     flex-direction: column;
 }
 
+h1 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
 /* Blockquote Wrapper */
 
 .blockquote-wrapper {

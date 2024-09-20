@@ -72,19 +72,13 @@ section a:hover {
     width: 70%;
 }
 
-#version p {
-    color: #666;
-    text-align: right;
-    padding: 2.7rem 0.5rem 0 0;
-}
-
 
 /* Forms */
 
 .wrapper {
     max-width: 150em;
-    margin: 2.5em auto 0 auto;
-    padding: 2em 0;
+    margin: 0 auto;
+    padding: 2em 0 3em 0;
     box-sizing: border-box;
 }
 
@@ -171,4 +165,65 @@ section a:hover {
 
 .content-grid a:hover {
     background-color: #333;
+}
+
+
+/* Puzzle */
+
+#hint {
+    font-family: "Handjet", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.2rem;
+    width: 30%;
+}
+
+pre {
+    font-family: monospace; /* Use a monospace font for ASCII art */
+    display: inline-block; /* Allow the pre elements to sit inline */
+    white-space: pre-wrap; /* Preserve whitespace */
+    margin: 0; /* Add some space between the numbers */
+    color: #e74c3c;
+}
+
+#hidden-text {
+    opacity: 0;
+    color: #e74c3c;
+}
+
+.hidden-message {
+    font-family: "Handjet", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.2rem;
+    color: #e74c3c;
+}
+
+#hidden-tab {
+    font-family: "Handjet", sans-serif;
+    font-optical-sizing: auto;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hidden-tab p {
+    color: #e74c3c;
+    font-size: 1.2rem;
+}
+
+#validationBtn {
+    margin: 1rem auto;
+}
+
+#check-result p {
+    color: #e74c3c;
+    font-size: 1.2rem;
+}
+
+#alpha-omega {
+    font-family: "Handjet", sans-serif;
+    font-optical-sizing: auto;
+    color: #e74c3c;
+    font-size: 1rem;
+    position: relative;
+    bottom: -18rem;
 }

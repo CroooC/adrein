@@ -81,7 +81,7 @@ section a:hover {
 .game-detail-container, .app-detail-container, .functionality-detail-container {
     text-align: center;
     max-width: 50em;
-    margin: 4em auto 0;
+    margin: 0 auto;
 }
 
 .game-thumbnail img, .app-thumbnail img, .functionality-thumbnail img {

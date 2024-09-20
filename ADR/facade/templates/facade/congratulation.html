@@ -1,0 +1,28 @@
+{% extends 'a_bases/base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'facade/css/congratulation.css' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block title %}You Win!{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Congratulation</h1>
+        <h2>You finished the game!</h2>
+        <p>You have successfully completed the puzzle game!</p>
+        <p>As a reward, you have unlocked a special image:</p>
+        <div class="reward-message">
+            <img src="{% static 'facade/favicon.ico' %}" alt="Reward">
+            <a href="{{ reward }}" download="reward.ico">Download Reward</a>
+        </div>
+        <button id="share-button">Share Your Achievement!</button>
+    </div>
+
+    <script src="{% static 'facade/js/congratulation.js' %}"></script>
+{% endblock %}

@@ -2,13 +2,14 @@ import logging
 import environ
 
 from django import forms
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.core.mail import send_mail
 from django.core.validators import EmailValidator
 from django.core.exceptions import ValidationError
+from django.views.decorators.http import require_http_methods
 
 from facade.forms import ContactUsForm
 from .models import Game, Functionality, App, Multi_Player
@@ -90,8 +91,8 @@ def contact(request):
 def email_sent(request):
     return render(request, 'facade/email_sent.html')
 
-def error(request):
-    return render(request, 'facade/error.html')
+def email_error(request):
+    return render(request, 'facade/email_error.html')
 
 def search_results(request):
     query = request.GET.get('q')
@@ -105,10 +106,24 @@ def search_results(request):
 
         # Combine the results from different models
         results = list(game_results) + list(multi_game_results) + list(functionality_results) + list(app_results)
+
+        # Check for specific query
+        if query == "HINT":
+            # If the user searches for "HINT", return a specific message instead of results
+            return render(request, 'facade/search_results.html', {
+                'results': [],  # No results to show in the normal list
+                'query': query,
+                'hint_message': "You found the hint. Now I will test your knowledge."
+            })
     else:
         results = []
     # If no specific category matches, you can handle it as needed
     return render(request, 'facade/search_results.html', {'results': results, 'query': query})
+
+def congratulation(request):
+    favicon_url = '/static/facade/favicon.ico'
+    return render(request, 'facade/congratulation.html', {'reward': favicon_url})
+
 
 # def login_view(request):
 #     if request.method == 'POST':

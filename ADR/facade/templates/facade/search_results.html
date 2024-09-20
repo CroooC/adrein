@@ -2,7 +2,12 @@
 
 {% load static %}
 
-{% block styles %}<link rel="stylesheet" href="{% static 'facade/css/index.css' %}"/>{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'facade/css/index.css' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap" rel="stylesheet">
+{% endblock %}
 
 {% block title %}Search - ADR{% endblock %}
 
@@ -27,7 +32,46 @@
                         </a>
                     </li>
                 {% empty %}
-                    <li>Sorry! No results found...</li>
+                    {% if hint_message %}
+                        <br>
+                        <div class="hidden-message">
+                            <li>{{ hint_message }}</li><br> <!-- Display the hint message instead -->
+                            <li>What is the most butifull country in the world?</li><br>
+                            <li>If you have/haven't the answer just ask the divinities by sending them your response...</li><br>
+                        </div><br>
+                        <div class="signature">
+    <pre>
+ ██
+███
+ ██
+ ██
+████
+    </pre>
+    <pre>
+   ██
+  ███
+ ██ ██
+██  ██
+███████
+    </pre>
+    <pre>
+ ██
+███
+ ██
+ ██
+████
+    </pre>
+    <pre>
+████
+██  ██
+████
+██  ██
+████
+    </pre>
+                        </div>
+                    {% else %}
+                        <li>Sorry! No results found...</li>
+                    {% endif %}
                 {% endfor %}
             </ul>
         </div>

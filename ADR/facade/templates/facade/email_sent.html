@@ -2,7 +2,12 @@
 
 {% load static %}
 
-{% block styles %}<link rel="stylesheet" href="{% static 'facade/css/index.css' %}"/>{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'facade/css/index.css' %}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap" rel="stylesheet">
+{% endblock %}
 
 {% block title %}Email - ADR{% endblock %}
 
@@ -12,5 +17,42 @@
     <div class="wrapper">
         <h1>Email sent!</h1><br>
         <p>We'll be back to you very soon.</p><br>
+    </div><br>
+    <p id="alpha-omega" style="display: block;">press alpha and omega</p>
+    <div id="hidden-tab" style="display: none;">
+        <textarea id="answer-check" placeholder="Type your answer here..."></textarea><br>
+        <button id="validationBtn" onclick="validateAnswer()">Check Answer</button>
+        <p id="check-result"></p><br>
+        <div class="signature">
+    <pre>
+ ██
+███
+ ██
+ ██
+████
+    </pre>
+    <pre>
+   ██
+  ███
+ ██ ██
+██  ██
+███████
+    </pre>
+    <pre>
+ ██
+███
+ ██
+ ██
+████
+    </pre>
+    <pre>
+████
+██  ██
+████
+██  ██
+████
+    </pre>
+        </div>
     </div>
+    <script src="{% static 'facade/js/email_sent.js' %}"></script>
 {% endblock %}

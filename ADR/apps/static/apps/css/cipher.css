@@ -22,12 +22,13 @@ main {
     background: #111;
     border: 2px solid var(--main-color);
     border-radius: 15px;
-    padding: 20px;
+    padding: 0 1.5rem;
     width: 100%;
     max-width: 800px;
     box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
     text-align: center;
     transition: max-width 0.3s ease;
+    margin: 1rem auto   ;
 }
 
 .title {
