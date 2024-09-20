@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let baddies = [];
     let baddieAddCounter = 0;
     let paused = false;
+    let collisionCheckCounter = 0;
 
     // Load images
     const backgroundImg = new Image();
@@ -53,12 +54,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function playerHasHitBaddie(playerRect, baddies) {
-        for (let b of baddies) {
-            if (playerRect.x < b.x + b.width &&
-                playerRect.x + playerRect.width > b.x &&
-                playerRect.y < b.y + b.height &&
-                playerRect.y + playerRect.height > b.y) {
-                return true;
+        const playerRadius = Math.min(playerRect.width, playerRect.height) / 2;
+        const playerCenter = {
+            x: playerRect.x + playerRadius,
+            y: playerRect.y + playerRadius
+        };
+
+        for (let baddie of baddies) {
+            // First perform a bounding box check
+            if (playerRect.x < baddie.x + baddie.width &&
+                playerRect.x + playerRect.width > baddie.x &&
+                playerRect.y < baddie.y + baddie.height &&
+                playerRect.y + playerRect.height > baddie.y) {
+
+                // Proceed with pixel-perfect collision detection only if bounding box check passes
+                const overlapX = Math.max(playerRect.x, baddie.x);
+                const overlapY = Math.max(playerRect.y, baddie.y);
+                const overlapWidth = Math.min(playerRect.x + playerRect.width, baddie.x + baddie.width) - overlapX;
+                const overlapHeight = Math.min(playerRect.y + playerRect.height, baddie.y + baddie.height) - overlapY;
+
+                if (overlapWidth > 0 && overlapHeight > 0) {
+                    const tempCanvas1 = document.createElement('canvas');
+                    const tempCanvas2 = document.createElement('canvas');
+                    const tempContext1 = tempCanvas1.getContext('2d');
+                    const tempContext2 = tempCanvas2.getContext('2d');
+
+                    tempCanvas1.width = overlapWidth;
+                    tempCanvas1.height = overlapHeight;
+                    tempCanvas2.width = overlapWidth;
+                    tempCanvas2.height = overlapHeight;
+
+                    tempContext1.drawImage(playerImg,
+                        overlapX - playerRect.x, overlapY - playerRect.y, overlapWidth, overlapHeight,
+                        0, 0, overlapWidth, overlapHeight);
+
+                    tempContext2.drawImage(baddie.img,
+                        overlapX - baddie.x, overlapY - baddie.y, overlapWidth, overlapHeight,
+                        0, 0, overlapWidth, overlapHeight);
+
+                    const spaceshipData = tempContext1.getImageData(0, 0, overlapWidth, overlapHeight);
+                    const meteorData = tempContext2.getImageData(0, 0, overlapWidth, overlapHeight);
+
+                    for (let i = 0; i < spaceshipData.data.length; i += 4) {
+                        if (spaceshipData.data[i + 3] > 0 && meteorData.data[i + 3] > 0) {
+                            return true;
+                        }
+                    }
+                }
             }
         }
         return false;
@@ -103,13 +145,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
                 const meteorImg = getRandomMeteor(randomSize);
                 const baddieSize = meteorImg.width;
+
                 const newBaddie = {
                     x: Math.floor(Math.random() * (WINDOWWIDTH - baddieSize)),
                     y: 0 - baddieSize,
                     width: baddieSize,
                     height: baddieSize,
                     speed: Math.floor(Math.random() * (BADDIEMAXSPEED - BADDIEMINSPEED + 1)) + BADDIEMINSPEED,
-                    img: meteorImg
+                    img: meteorImg,
+                    rotation: 0, // Initial rotation
+                    rotationSpeed: (Math.random() * 10 - 5) * Math.PI / 180 // Random rotation speed in radians
                 };
                 baddies.push(newBaddie);
             }
@@ -117,22 +162,43 @@ document.addEventListener('DOMContentLoaded', () => {
             // Move and draw baddies
             for (let i = 0; i < baddies.length; i++) {
                 baddies[i].y += baddies[i].speed;
+                baddies[i].rotation += baddies[i].rotationSpeed;
+
+                // Remove meteors that move off the screen
                 if (baddies[i].y > WINDOWHEIGHT) {
                     baddies.splice(i, 1);
                     i--;
                 } else {
-                    context.drawImage(baddies[i].img, baddies[i].x, baddies[i].y, baddies[i].width, baddies[i].height);
+                    // Save the current canvas state
+                    context.save();
+
+                    // Translate the canvas origin to the center of the meteor
+                    const baddieCenterX = baddies[i].x + baddies[i].width / 2;
+                    const baddieCenterY = baddies[i].y + baddies[i].height / 2;
+                    context.translate(baddieCenterX, baddieCenterY);
+
+                    // Rotate the canvas
+                    context.rotate(baddies[i].rotation);
+
+                    // Draw the meteor, offset by half of its width and height to maintain center-based rotation
+                    context.drawImage(baddies[i].img, -baddies[i].width / 2, -baddies[i].height / 2, baddies[i].width, baddies[i].height);
+
+                    // Restore the canvas state (undo translation and rotation)
+                    context.restore();
                 }
             }
 
             // Check for collisions
-            if (playerHasHitBaddie(playerRect, baddies)) {
-                clearInterval(gameLoop);
-                if (score > topScore) {
-                    topScore = score;
+            collisionCheckCounter++;
+            if (collisionCheckCounter % 2 === 0) {
+                if (playerHasHitBaddie(playerRect, baddies)) {
+                    clearInterval(gameLoop);
+                    if (score > topScore) {
+                        topScore = score;
+                    }
+                    gameOverScreen.style.display = 'flex';
+                    document.getElementById('scoreDisplay').textContent = score;
                 }
-                gameOverScreen.style.display = 'flex';
-                document.getElementById('scoreDisplay').textContent = score;
             }
 
             // Draw player spaceship

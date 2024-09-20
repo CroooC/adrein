@@ -140,8 +140,8 @@ button:disabled {
 
 #dealer-hand div,
 #player-hand div {
-    width: 8rem;
-    height: 8rem;
+    width: 7rem;
+    height: 9rem;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 0.3125rem;
@@ -152,8 +152,8 @@ button:disabled {
 
 #dealer-hand img,
 #player-hand img {
-    width: 8rem;
-    height: 8rem;
+    width: 7rem;
+    height: 9rem;
 }
 
 #player p {
