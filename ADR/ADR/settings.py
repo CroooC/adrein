@@ -52,8 +52,6 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'imagekit',
 
-    'ADR.facade',
-
     'facade',
     'games',
     'apps',
@@ -198,9 +196,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # HTTP / Cookies
 
 SECURE_COOKIE = True
-
 SESSION_COOKIE_HTTPONLY = True
-
 HTTPONLY_COOKIE = True
 
 
