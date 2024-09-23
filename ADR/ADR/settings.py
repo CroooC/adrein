@@ -27,20 +27,15 @@ environ.Env.read_env()
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
 
     'adrein.pythonanywhere.com',
-
     'adreinn.eu.pythonanywhere.com',
 
-    'adrein-crooocs-projects.vercel.app',
-    'adrein-6814mhox1-crooocs-projects.vercel.app',
-    'adrein.vercel.app',
-
-    'adr-xz0o.onrender.com',
+    'adrein.onrender.com',
     ]
 
 
@@ -101,11 +96,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-        # 'OPTIONS': {
-        #     'sslmode': 'require',
-        # },
     }
 }
+
+# import dj_database_url
+
+# DATABASES = {
+#     'default': dj_database_url.config(default='postgres://localhost')
+# }
 
 
 # Password validation
@@ -199,9 +197,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 SECURE_COOKIE = True
 
-CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = True
 
-SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = True
 
 SESSION_COOKIE_HTTPONLY = True
 
@@ -217,7 +215,7 @@ X_FRAME_OPTIONS = 'DENY'
 
 SECURE_SSL_REDIRECT = False
 
-SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 
 # Weather API
