@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'imagekit',
 
+    'ADR.facade',
+
     'facade',
     'games',
     'apps',
