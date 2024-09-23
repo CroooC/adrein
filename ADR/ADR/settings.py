@@ -193,13 +193,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-# Cookies
+# HTTP / Cookies
 
 SECURE_COOKIE = True
-
-CSRF_COOKIE_SECURE = True
-
-SESSION_COOKIE_SECURE = True
 
 SESSION_COOKIE_HTTPONLY = True
 
@@ -211,11 +207,17 @@ HTTPONLY_COOKIE = True
 X_FRAME_OPTIONS = 'DENY'
 
 
-# SSL/TLS
+# Ensure security and force HTTPS
 
-SECURE_SSL_REDIRECT = False
+SECURE_SSL_REDIRECT = False  # Redirect all HTTP requests to HTTPS
+SESSION_COOKIE_SECURE = True  # Use HTTPS for session cookies
+CSRF_COOKIE_SECURE = True     # Use HTTPS for CSRF cookies
 
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_SECONDS = 31536000  # Enable HSTS (1 year)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Apply HSTS to subdomains
+SECURE_HSTS_PRELOAD = True  # Preload HSTS
+SECURE_BROWSER_XSS_FILTER = True  # Enable the browser's XSS filter
+SECURE_CONTENT_TYPE_NOSNIFF = True  # Prevent the browser from interpreting files as a different MIME type
 
 
 # Weather API
