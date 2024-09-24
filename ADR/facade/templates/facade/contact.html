@@ -11,14 +11,16 @@
 {% block content %}
     <div class="wrapper">
         <div class="contact-container">
-            <h1>You want to conctact me? You can just right here!</h1>
+            <h2>You want to conctact me?</h2>
+            <h3>You can just right here!</h3>
+            <br>
             <p>We are here to help you!<br>
-            Or if you have some new ideas to tell us or some problems like bugs don't esitate...</p>
+            Or if you have some new ideas to tell us or some problems like bugs don't hesitate to contact us...</p>
 
             <form action="" method="post" novalidate>
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit">Send Message</button>
+                <button class="primary-button" type="button">Send Message</button>
             </form>
         </div>
     </div>

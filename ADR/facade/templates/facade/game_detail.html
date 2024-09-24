@@ -8,21 +8,21 @@
 
 {% block content %}
     <div class="game-detail-container">
-        <h2>{{ game.name }}</h2>
+        <h1>{{ game.name }}</h1>
 
         <div class="game-thumbnail">
             <img src="{{ game.thumbnail.url }}" alt="{{ game.name }}">
         </div>
 
-        <div class="game-details">
+        <ul class="game-details">
             {% comment %} <li><strong>Active:</strong> {{ game.active|yesno }}</li> {% endcomment %}
             {% if game.active %}
-                <a href="{{ game.link }}" class="play-now">Play Now</a>
+                <button class="secondary-button" href="{{ game.link }}">Play Now</button>
             {% else %}
                 <li>This feature is not available right now, maybe try later...</li>
             {% endif %}
             <p><strong>Genre:</strong> {{ game.get_genre_display }}</p>
             <p>{{ game.description }}</p>
-        </div>
+        </ul>
     </div>
 {% endblock %}

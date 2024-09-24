@@ -8,7 +8,7 @@
 
 {% block content %}
     <div class="app-detail-container">
-        <h2>{{ app.name }}</h2>
+        <h1>{{ app.name }}</h1>
 
         <div class="app-thumbnail">
             <img src="{{ app.thumbnail.url }}" alt="{{ app.name }}">
@@ -17,12 +17,11 @@
         <ul class="app-details">
             {% comment %} <li><strong>Active:</strong> {{ app.active|yesno }}</li> {% endcomment %}
             {% if app.active %}
-                <li><a href="{{ app.link }}" class="play-now">Play Now</a></li>
+                <button class="secondary-button" href="{{ app.link }}">Play Now</a></button>
             {% else %}
                 <li>This feature is not available right now, maybe try later...</li>
             {% endif %}
+            <p>{{ app.description }}</p>
         </ul>
-
-        <p class="app-description">{{ app.description }}</p>
     </div>
 {% endblock %}

@@ -8,22 +8,21 @@
 
 {% block content %}
     <div class="game-detail-container">
-        <h2>{{ multi_game.name }}</h2>
+        <h1>{{ multi_game.name }}</h1>
 
         <div class="game-thumbnail">
             <img src="{{ multi_game.thumbnail.url }}" alt="{{ multi_game.name }}">
         </div>
 
         <ul class="game-details">
-            <li><strong>Genre:</strong> {{ multi_game.get_genre_display }}</li>
             {% comment %} <li><strong>Active:</strong> {{ game.active|yesno }}</li> {% endcomment %}
             {% if multi_game.active %}
-                <li><a href="{{ multi_game.link }}" class="play-now">Play Now</a></li>
+                <button class="secondary-button" href="{{ multi_game.link }}">Play Now</a></button>
             {% else %}
                 <li>This feature is not available right now, maybe try later...</li>
             {% endif %}
+            <li><strong>Genre:</strong> {{ multi_game.get_genre_display }}</li>
+            <p>{{ multi_game.description }}</p>
         </ul>
-
-        <p class="game-description">{{ multi_game.description }}</p>
     </div>
 {% endblock %}

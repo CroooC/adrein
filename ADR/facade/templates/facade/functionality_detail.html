@@ -8,7 +8,7 @@
 
 {% block content %}
     <div class="functionality-detail-container">
-        <h2>{{ functionality.name }}</h2>
+        <h1>{{ functionality.name }}</h1>
 
         <div class="functionality-thumbnail">
             <img src="{{ functionality.thumbnail.url }}" alt="{{ functionality.name }}">
@@ -17,12 +17,11 @@
         <ul class="functionality-details">
             {% comment %} <li><strong>Active:</strong> {{ functionality.active|yesno }}</li> {% endcomment %}
             {% if functionality.active and functionality.link%}
-                <li><a href="{{ functionality.link }}" class="play-now">Play Now</a></li>
+                <button class="secondary-button" href="{{ functionality.link }}">Play Now</a></button>
             {% else %}
                 <li>This feature is not available right now, maybe try later...</li>
             {% endif %}
+            <p>{{ functionality.description }}</p>
         </ul>
-
-        <p class="functionality-description">{{ functionality.description }}</p>
     </div>
 {% endblock %}
