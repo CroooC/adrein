@@ -1,10 +1,11 @@
 :root {
     --color-b: #000;
     --color-w: #fff;
+    --color-g: #141414;
+    --color-lg: #303030;
     --coloraccent1: #e74c3c;
     --coloraccent2: #1869eb;
     --coloraccent3: #e4e812f4;
-    --coloraccent4: #ababab;
 
     --ff2: "DM Sans", sans-serif;
     --ff1: "Verdana", sans-serif;
@@ -26,27 +27,27 @@
     --shadowwhite: #ffffff30 0px 5px 10px 5px;
     --shadowred: #ff000045 0px 5px 10px 5px;
 
-    --size-xxs: 0.25rem;
-    --size-xs: 0.5rem;
-    --size-s: 0.75rem;
-    --size-m: 1rem;
-    --size-l: 1.25rem;
-    --size-xl: 1.75rem;
-    --size-xxl: 2.5rem;
-    --size-xxxl: 3.75rem;
-    --size-4xl: 6.25rem;
-    --size-5xl: 10rem;
-    --size-6xl: 15rem;
+    --size-xxs: 0.25rem;    /* 4px */
+    --size-xs: 0.5rem;      /* 8px */
+    --size-s: 0.75rem;      /* 12px */
+    --size-m: 1rem;         /* 16px */
+    --size-l: 1.25rem;      /* 20px */
+    --size-xl: 1.75rem;     /* 28px */
+    --size-xxl: 2.5rem;     /* 40px */
+    --size-xxxl: 3.75rem;   /* 60px */
+    --size-4xl: 6.25rem;    /* 100px */
+    --size-5xl: 10rem;      /* 160px */
+    --size-6xl: 15rem;      /* 240px */
 }
 
 .primary-button {
     color: var(--color-w);
-    background-color: var(--coloraccent2);
+    background-color: var(--coloraccent1);
     font: var(--p);
     font-weight: bold;
     padding: var(--size-m) var(--size-xxl);
     margin-top: var(--size-m);
-    border: 0.125rem solid var(--coloraccent2);
+    border: 0.125rem solid var(--coloraccent1);
     border-radius: var(--size-xxs);
     box-shadow: var(--shadow);
     cursor: pointer;
@@ -55,17 +56,17 @@
 
 .primary-button:hover {
     background-color: var(--coloraccent3);
-    color: var(--coloraccent2);
+    color: var(--coloraccent1);
     transform: scale(1.05);
 }
 
 .secondary-button {
-    color: var(--coloraccent2);
-    background-color: var(--color-b);
+    color: var(--coloraccent1);
+    background-color: var(--color-g);
     font: var(--smalltext);
     font-weight: bold;
     padding: var(--size-s) var(--size-xl);
-    border: 0.125rem solid var(--coloraccent2);
+    border: 0.125rem solid var(--coloraccent1);
     border-radius: var(--size-xxs);
     box-shadow: var(--shadow);
     cursor: pointer;
@@ -79,7 +80,7 @@
 
 .third-button {
     color: var(--coloraccent3);
-    background-color: var(--color-b);
+    background-color: var(--color-g);
     font: var(--smalltext);
     font-weight: bold;
     padding: var(--size-s) var(--size-xl);
@@ -91,7 +92,7 @@
 }
 
 .third-button:hover {
-    background-color: var(--coloraccent2);
+    background-color: var(--coloraccent1);
     color: var(--coloraccent3);
     transform: scale(1.05);
 }

@@ -17,6 +17,15 @@ p {
     font: var(--p);
 }
 
+a {
+    color: var(--color-w);
+    text-decoration: none;
+}
+
+.secondary-button a {
+    color: var(--coloraccent1);
+}
+
 /* For ..._detail.html */
 
 .game-detail-container, .app-detail-container, .functionality-detail-container {

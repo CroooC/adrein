@@ -1,22 +1,24 @@
 /* USE RESIZE ATRIBUTE FOR THE PDF LAYOUT !!! */
 
+:root {
+    --pdf-width: 241mm;
+}
+
 main {
-    padding: 0;
-    margin: 0;
     min-height: 94vh;
-    background-color: #000;
+    background-color: var(--color-b);
     display: flex;
     justify-content: center;
 }
 
 .container {
     width: 90%;
-    margin: 1rem auto;
-    padding: 1rem;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 0.625rem;
-    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+    margin: var(--size-m) auto;
+    padding: var(--size-m);
+    background-color: var(--color-w);
+    border: 1px solid var(--color-w);
+    border-radius: var(--size-m);
+    box-shadow: 0 0 var(--size-m) rgba(0, 0, 0, 0.3);
 }
 
 .container h1, form {
@@ -24,7 +26,7 @@ main {
 }
 
 .container h1 {
-    margin: 1rem 0;
+    margin: var(--size-m) 0;
 }
 
 #pdf-file {
@@ -33,35 +35,11 @@ main {
     border-radius: 0.3125rem;
 }
 
-#download-button,
-#show-preview-button,
-#upload-pdf-button,
-#small-button,
-#medium-button,
-#large-button {
-    padding: 0.625rem 3rem;
-    margin: 1rem 0;
-    cursor: pointer;
-    background-color: #51d345;
-    color: #fff;
-    border: none;
-    border-radius: 0.3125rem;
-    transition: background-color 0.3s ease;
-}
-
-#download-buttn:hover,
-#show-preview-button:hover,
-#upload-pdf-button:hover,
-#small-button:hover,
-#medium-button:hover,
-#large-button:hover {
-    background-color: #3e8e41;
-}
-
 .size-button {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin: var(--size-m) 0;
 }
 
 #loading {
@@ -70,7 +48,7 @@ main {
 }
 
 .revision-text {
-    margin: 1rem auto;
+    margin: var(--size-m) auto;
     width: 90%;
 }
 
@@ -99,8 +77,4 @@ main {
     /* max-height: #revision-text-content width; */
     overflow: hidden;
     transition: width 0.3s ease-in-out;
-}
-
-:root {
-    --pdf-width: 241mm;
 }

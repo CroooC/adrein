@@ -1,11 +1,11 @@
 /* General */
 
 main {
-    background-color: #000;
+    background-color: var(--color-b);
 }
 
 h1, h3 {
-    color: #fff;
+    color: var(--color-w);
     text-align: center;
     margin: 0;
 }
@@ -23,21 +23,21 @@ h3 {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: #000;
+    background-color: var(--color-b);
 }
 
 .funny-box {
-    color: #000;
+    color: var(--color-b);
     position: relative;
-    width: 15em;
-    height: 15em;
-    margin: 1em 5em;
+    width: var(--size-6xl);
+    height: var(--size-6xl);
+    margin: var(--size-m) var(--size-xxl);
     overflow: hidden;
-    border-radius: 2em;
+    border-radius: var(--size-l);
     cursor: pointer;
-    transition: background-color 0.3s;
-    background-color: #fff;
-    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s var(--transition);
+    background-color: var(--color-w);
+    box-shadow: 0 var(--size-xxs) var(--size-xs) rgba(0, 0, 0, 0.1);
 }
 
 .funny-text {
@@ -46,10 +46,10 @@ h3 {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
-    font-size: 2em;
+    font-size: var(--size-xl);
     text-align: center;
     opacity: 0;
-    transition: opacity 0.3s, transform 0.3s;
+    transition: opacity 0.3s, transform var(--transition);
 }
 
 /* Leveling */
@@ -58,16 +58,16 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
+    padding: var(--size-m);
 }
 
 .level-indicator {
     text-align: center;
     width: 40rem;
-    font-size: 24px;
+    font-size: var(--size-xl);
     font-weight: bold;
-    color: #fff;
-    background-color: #333;
+    color: var(--color-w);
+    background-color: var(--color-g);
     padding: 10px 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -75,9 +75,9 @@ h3 {
 
 .progress-bar {
     width: 42rem;
-    height: 20px;
-    background-color: #ddd;
-    border-radius: 10px;
+    height: var(--size-l);
+    background-color: var(--color-w);
+    border-radius: var(--size-s);
     overflow: hidden;
 }
 
@@ -85,13 +85,13 @@ h3 {
     width: 0%;
     height: 100%;
     background-color: #4CAF50;
-    transition: width 0.3s ease-in-out;
+    transition: width var(--transition);
 }
 
 /* Boxes */
 
 .funny-box:hover {
-    background-color: #e74c3c;
+    background-color: var(--coloraccent1);
 }
 
 .funny-box:hover .funny-text {

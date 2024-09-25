@@ -17,16 +17,16 @@
         <form id="pdf-upload-form">
             {% comment %} {% csrf_token %} {% endcomment %}
             <input type="file" id="pdf-file" accept="application/pdf">
-            <button id="upload-pdf-button">Upload PDF</button>
+            <button class="primary-button" id="upload-pdf-button">Upload PDF</button>
             <p id="loading" style="display: none">Wait a little more, the file is being synthetized...</p>
         </form>
         <div class="revision-text">
             <h2 id="revision-text-header" style="display: none;">Revision Summary:</h2>
-            <button id="show-preview-button" style="display: none;">Show/Hide approximate pdf output format</button>
+            <button class="secondary-button" id="show-preview-button" style="display: none;">Show/Hide approximate pdf output format</button>
             <div class="size-button">
-                <button id="small-button" style="display: none;">Small text</button>
-                <button id="medium-button" style="display: none;">Medium text</button>
-                <button id="large-button" style="display: none;">Large text</button>
+                <button class="third-button" id="small-button" style="display: none;">Small text</button>
+                <button class="third-button" id="medium-button" style="display: none;">Medium text</button>
+                <button class="third-button" id="large-button" style="display: none;">Large text</button>
             </div>
             <div id="pdf-slider" style="display: none;">
                 <label for="width-slider">Scale: </label>
@@ -35,7 +35,7 @@
             </div>
             <div id="preview" style="display: none;"></div>
             <p id="revision-text-content"></p>
-            <button id="download-button" style="display: none;">Download Revision Sheet</button>
+            <button class="primary-button" id="download-button" style="display: none;">Download Revision Sheet</button>
         </div>
     </div>
 

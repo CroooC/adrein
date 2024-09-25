@@ -1,15 +1,13 @@
 main {
     width: 100%;
     scroll-behavior: smooth;
-    margin: 0;
-    padding: 0;
-    background-color: #000;
-    min-height: 90vh;
+    background-color: var(--color-b);
+    min-height: 94vh;
     text-align: center;
 }
 
 canvas {
-    border: 2px solid #fff;
+    border: 2px solid var(--color-w);
     background: url(../img/blue.png);
     background-repeat: repeat;
     background-size: auto;
@@ -35,7 +33,7 @@ canvas {
 #startScreen h1,
 #gameOverScreen h1 {
     color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px var(--size-xxs) rgba(0, 0, 0, 0.5);
 }
 
 #startScreen h3,
@@ -44,12 +42,12 @@ canvas {
 }
 
 .white-caps {
-    color: #FFFFFF;
+    color: var(--color-w);
     text-transform: uppercase;
 }
 
 .red-caps {
-    color: #FF0000;
+    color: var(--coloraccent1);
     text-transform: uppercase;
 }
 
@@ -57,13 +55,13 @@ canvas {
 #startGameBtn {
     background-color: #4CAF50;
     border: none;
-    color: white;
-    padding: 10px 1.25rem;
+    color: var(--color-w);
+    padding: 10px var(--size-l);
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 1rem;
-    margin-top: 1.25rem;
+    font-size: var(--size-m);
+    margin-top: var(--size-l);
     cursor: pointer;
 }
 
@@ -75,12 +73,12 @@ canvas {
 #startScreen h1,
 #gameOverScreen h1 {
     margin: 0;
-    font-size: 2.25rem;
+    font-size: var(--size-xxl);
 }
 
 #gameOverScreen p {
     margin: 10px 0;
-    color: #fff;
+    color: var(--color-w);
 }
 
 #scoreDisplay {

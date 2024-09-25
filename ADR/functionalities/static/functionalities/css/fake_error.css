@@ -1,23 +1,21 @@
+main {
+    background-color: #f9f9f9;
+}
+
 h1 {
-    font-size: 150px;
-    color: #e74c3c;
+    font-size: var(--size-5xl);
+    color: var(--coloraccent1);
     margin: 0;
 }
 
 h2 {
-    font-size: 36px;
-    color: #333;
+    font: var(--h3);
+    color: var(--color-lg);
     margin-bottom: 20px;
 }
 
-p {
-    font-size: 18px;
-    color: #777;
-    margin-top: 0;
-}
-
 a {
-    color: #3498db;
+    color: var(--coloraccent2);
     text-decoration: none;
     font-weight: bold;
 }
@@ -27,20 +25,27 @@ a:hover {
 }
 
 #error-container {
-    background-color: #f8f8f8;
-    color: #333;
+    background-color: var(--color-w);
+    color: var(--color-lg);
     text-align: center;
-    max-width: 600px;
+    max-width: 37.5rem;
     margin: 0 auto;
-    background-color: #fff;
-    padding: 50px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: var(--size-xxxl);
+    border-radius: var(--size-xs);
+    /* box-shadow: var(--size-m) var(--size-m) var(--size-m) rgba(0, 0, 0, 0.6),
+        -10px -10px 10px var(--color-w); */
+    box-shadow: 0 0 var(--size-s) rgba(0, 0, 0, 0.3);
+}
+
+#error-container p {
+    font: var(--p);
+    color: var(--color-lg);
+    margin-top: 0;
 }
 
 .bounce {
-    font-size: 16px;
-    margin-top: 20px;
+    font-size: var(--size-m);
+    margin-top: var(--size-l);
     animation: bounce 1s infinite;
 }
 
@@ -99,7 +104,7 @@ a:hover {
     top: 12rem;
     left: 0;
     width: 100%;
-    height: 15rem;
+    height: var(--size-6xl);
     background-color: rgba(0, 0, 0, 0.9);
     flex-direction: column;
     justify-content: center;
@@ -111,15 +116,17 @@ a:hover {
 }
 
 .hidden-text p {
-    color: #e74c3c;
-    font-size: 1.2rem;
-    margin: 1rem auto;
+    color: var(--coloraccent1);
+    font-size: var(--size-l);
+    margin: var(--size-m) auto;
 }
 
-.hidden-text h3, h2 {
-    color: #e74c3c;
+.hidden-text h3, .hidden-text h2 {
+    font-family: "Handjet", sans-serif;
+    color: var(--coloraccent1);
 }
 
-/* .hover-word:hover ~ .hidden-text {
-    display: block; /* Show text when the hover word is hovered
-} */
+.hover-word:hover /* ~ .hidden-text */ {
+    /* display: block; */ /* Show text when the hover word is hovered*/
+    color: var(--coloraccent1);
+}

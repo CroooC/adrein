@@ -14,16 +14,16 @@
             And the right opponent controls it stick with the <b>Arrows</b> keys.<br>
             The first player at 3 point wins the match!
         </h3>
-        <button id="startGameBtn" onclick="startGame()">Start Game</button>
+        <button class="secondary-button" id="startGameBtn" onclick="startGame()">Start Game</button>
     </div>
     <div id="gameOverScreen" style="display: none;">
         <h1>Game Over</h1>
         <p id="winner"></p>
-        <button id="playAgainBtn" onclick="restartGame()">Play Again</button>
+        <button class="secondary-button" id="playAgainBtn" onclick="restartGame()">Play Again</button>
     </div>
     <div id="pauseScreen" style="display: none;">
         <h1>Game Paused</h1>
-        <button id="pauseGameBtn" onclick="resumeGame()">Resume</button>
+        <button class="secondary-button" id="pauseGameBtn" onclick="resumeGame()">Resume</button>
     </div>
 
     <script src="{% static 'games/js/pong.js' %}"></script>

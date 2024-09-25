@@ -5,10 +5,8 @@
 /* Global Styles */
 
 main {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    background-color: #000;
+    background-color: var(--color-b);
     color: var(--main-color);
     font-family: "Handjet", sans-serif;
     font-optical-sizing: auto;
@@ -19,35 +17,35 @@ main {
 }
 
 .container {
-    background: #111;
+    background: var(--color-b);
     border: 2px solid var(--main-color);
-    border-radius: 15px;
-    padding: 0 1.5rem;
+    border-radius: var(--size-m);
+    padding: 0 var(--size-l);
     width: 100%;
     max-width: 800px;
-    box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+    box-shadow: 0 0 var(--size-xl) rgba(0, 255, 0, 0.5);
     text-align: center;
     transition: max-width 0.3s ease;
-    margin: 1rem auto   ;
+    margin: var(--size-m) auto;
 }
 
 .title {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: var(--size-xxl);
+    margin-bottom: var(--size-l);
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--main-color);
-    text-shadow: 0 0 20px rgba(0, 255, 0, 0.8), 0 0 10px rgba(0, 255, 0, 0.6);
-    transition: font-size 0.3s ease;
+    text-shadow: 0 0 var(--size-l) rgba(0, 255, 0, 0.8), 0 0 var(--size-s) rgba(0, 255, 0, 0.6);
+    transition: font-size var(--transition);
 }
 
 #form {
-    margin-bottom: 20px;
+    margin-bottom: var(--size-l);
 }
 
 .form-group,
 .form-group-radio {
-    margin-bottom: 20px;
+    margin-bottom: var(--size-l);
     text-align: left;
 }
 
@@ -60,7 +58,7 @@ main {
 label {
     font-size: 1.1rem;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: var(--size-xs);
     color: var(--main-color);
 }
 
@@ -68,77 +66,77 @@ textarea,
 input[type="number"],
 input[type="text"] {
     width: 97%;
-    padding: 10px;
-    font-size: 1rem;
-    background-color: #222;
+    padding: var(--size-xxs);
+    font-size: var(--size-m);
+    background-color: var(--color-b);
     border: 2px solid var(--main-color);
     color: var(--main-color);
-    border-radius: 8px;
-    transition: border-color 0.3s ease;
+    border-radius: var(--size-xs);
+    transition: border-color var(--transition);
 }
 
 textarea:focus,
 input:focus {
     border-color: var(--main-color);
     outline: none;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    box-shadow: 0 0 var(--size-xs) rgba(0, 255, 0, 0.8);
 }
 
 input[type="radio"] {
-    margin-right: 8px;
+    margin-right: var(--size-xs);
 }
 
 input[type="submit"] {
     width: 100%;
-    padding: 12px;
+    padding: var(--size-s);
     font-size: 1.2rem;
     background-color: var(--main-color);
-    color: #000;
+    color: var(--color-b);
     border: none;
-    border-radius: 10px;
+    border-radius: var(--size-s);
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input[type="submit"]:hover {
     background-color: #0d0;
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+    box-shadow: 0 0 var(--size-m) rgba(0, 255, 0, 0.7);
 }
 
 .result {
-    margin-top: 20px;
+    margin-top: var(--size-l);
 }
 
 .output {
     font-size: 1.2rem;
-    background-color: #111;
-    padding: 10px;
+    background-color: var(--color-b);
+    padding: var(--size-s);
     border: 2px solid var(--main-color);
-    border-radius: 8px;
+    border-radius: var(--size-xs);
     color: var(--main-color);
-    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+    text-shadow: 0 0 var(--size-s) rgba(0, 255, 0, 0.7);
 }
 
 .error {
     font-size: 1.2rem;
     color: #f00;
-    text-shadow: 0 0 5px rgba(255, 0, 0, 0.7);
+    text-shadow: 0 0 var(--size-xs) rgba(255, 0, 0, 0.7);
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
     .container {
         max-width: 100%;
-        padding: 15px;
+        padding: var(--size-m);
     }
 
     .title {
-        font-size: 2rem;
+        font-size: var(--size-xxl);
         letter-spacing: 2px;
     }
 
     label {
-        font-size: 1rem;
+        font-size: var(--size-m);
     }
 
     input[type="submit"] {
@@ -153,19 +151,19 @@ input[type="submit"]:hover {
 
 @media (max-width: 480px) {
     .title {
-        font-size: 1.8rem;
+        font-size: var(--size-xl);
         letter-spacing: 1px;
     }
 
     textarea,
     input[type="number"],
     input[type="text"] {
-        padding: 8px;
+        padding: var(--size-xs);
     }
 
     input[type="submit"] {
-        font-size: 1rem;
-        padding: 10px;
+        font-size: var(--size-m);
+        padding: var(--size-s);
     }
 
     label {
@@ -174,6 +172,6 @@ input[type="submit"]:hover {
 
     .output,
     .error {
-        font-size: 1rem;
+        font-size: var(--size-m);
     }
 }

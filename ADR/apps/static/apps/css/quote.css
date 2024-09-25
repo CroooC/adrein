@@ -2,30 +2,40 @@
 
 main {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
     line-height: 1.4;
-    color: #333;
-    background-color: #f9f9f9;
+    color: var(--color-g);
     display: flex;
     flex-direction: column;
+    padding: var(--size-m) 0;
+    min-height: 94vh;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 0;
+    font: var(--h3);
+}
+
+h2 {
+    font: var(--h4);
+    margin: 0;
+    padding: 0 var(--size-m);
+}
+
+h4 {
+    font: var(--p);
 }
 
 /* Blockquote Wrapper */
 
 .blockquote-wrapper {
     max-width: 62.5rem;
-    margin: 1rem auto;
-    padding: 1rem;
-    background-color: #fff;
-    border: 0.0625rem solid #ddd;
-    box-shadow: 0 0.125px 0.25rem rgba(0, 0, 0, 0.1);
-    border-radius: 1.6rem;
+    margin: var(--size-m) auto var(--size-m);
+    padding: var(--size-xl);
+    background-color: var(--color-w);
+    border: 0.0625rem solid var(--color-w);
+    box-shadow: 0 0.125rem var(--size-s) rgba(0, 0, 0, 0.3);
+    border-radius: var(--size-xxxl);
 }
 
 /* Blockquote */
@@ -34,26 +44,19 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
-}
-
-.blockquote h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0;
-    text-align: center;
+    /* padding: var(--size-m); */
 }
 
 .blockquote img {
     width: 20rem;
     border-radius: 50%;
-    margin: 1.25rem;
+    margin: var(--size-s) var(--size-l);
 }
 
 .blockquote h4 {
-    font-size: 1rem;
+    font-size: var(--size-m);
     font-weight: bold;
-    color: #666;
+    color: var(--color-lg);
     margin: 0;
 }
 
@@ -61,24 +64,15 @@ h1 {
 
 #btn {
     display: block;
-    margin: 1.25rem auto;
-    padding: 0.625rem 1.25rem;
-    border: none;
-    border-radius: 0.3125rem;
-    background-color: #4CAF50;
-    color: #fff;
-    cursor: pointer;
-}
-
-#btn:hover {
-    background-color: #3e8e41;
+    width: 20%;
+    margin: 0 auto;
 }
 
 /* Responsive Design */
 
-@media (max-width: 38rem) {
+@media (max-width: 37.5rem) {
     .blockquote-wrapper {
-        margin: 1.25rem;
+        margin: var(--color-lg);
     }
 
     .blockquote img {

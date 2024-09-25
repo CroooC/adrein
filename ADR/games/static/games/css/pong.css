@@ -1,19 +1,25 @@
 main {
     width: 100%;
     scroll-behavior: smooth;
-    margin: 0;
-    padding: 0;
-    background-color: #000;
+    background-color: var(--color-b);
     min-height: 90vh;
     text-align: center;
+}
+
+h1 {
+    font: var(--h1);
+}
+
+h3 {
+    font: var(--h4);
 }
 
 #myCanvas {
     height: 600px;
     width: 800px;
-    border: 2px solid #fff;
-    background-color: #000;
-    margin: 20px auto;
+    border: 2px solid var(--color-w);
+    background-color: var(--color-b);
+    margin: var(--size-l) auto;
 }
 
 #startScreen,
@@ -24,7 +30,7 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: white;
+    color: var(--color-w);
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -34,23 +40,11 @@ main {
     padding-bottom: 3rem;
 }
 
-#startGameBtn,
-#playAgainBtn,
-#pauseGameBtn {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 10px 20px;
+button {
+    padding: var(--size-xs) var(--size-l);
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin-top: 20px;
-    cursor: pointer;
-}
-
-#startScreen button:hover,
-#gameOverScreen button:hover,
-#pauseGameScreen button:hover {
-    background-color: #337837;
+    font-size: var(--size-m);
+    margin-top: var(--size-l);
 }

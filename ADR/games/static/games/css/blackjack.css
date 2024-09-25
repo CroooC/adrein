@@ -1,50 +1,47 @@
 main {
     width: 100%;
     scroll-behavior: smooth;
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
-    min-height: 90vh;
+    min-height: 94vh;
 }
 
 /* General */
 
 h1 {
     text-align: center;
-    color: #fff ;
-    padding: 1rem 0 0;
+    color: var(--color-w);
+    padding: var(--size-m) 0 0;
     margin: 0;
 }
 
 h2 {
-    color: #fff;
+    color: var(--color-w);
     text-align: center;
 }
 
 p {
-    margin: 0.5rem;
+    margin: var(--size-xs);
     text-align: center;
-    color: #fff;
+    color: var(--color-w);
 }
 
 button {
-    padding: 0.625rem 3.75rem;
-    margin: 1rem 0;
-    font-size: 1.5rem;
+    padding: var(--size-s) var(--size-xxxl);
+    margin: var(--size-m) 0;
+    font-size: var(--size-l);
     cursor: pointer;
     background-color: #51d345;
-    color: #fff;
+    color: var(--color-w);
     border: none;
-    border-radius: 0.3125rem;
-    transition: background-color 0.3s ease;
+    border-radius: var(--size-s);
+    transition: background-color var(--transition);
 }
 
 #hit {
-    margin-left: 1rem;
+    margin-left: var(--size-m);
 }
 
 #reset {
-    margin-right: 1rem;
+    margin-right: var(--size-m);
 }
 
 button:hover {
@@ -68,17 +65,17 @@ button:disabled {
     display: grid;
     grid-template-columns: 15% 1fr 15%; /* 20% for #stats-column, 1fr for #game-content */
     grid-gap: 2rem;
-    padding: 1.25rem;
+    padding: var(--size-l);
 }
 
 #game {
-    padding: 1rem;
+    padding: var(--size-m);
     margin: 0 auto;
     background-image: url(../img/bg_green.png);
     background-repeat: repeat;
     background-size: cover;
-    border-radius: 1rem;
-    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+    border-radius: var(--size-m);
+    box-shadow: 0 0 var(--size-s) rgba(0, 0, 0, 0.1);
     grid-column: 2;
     max-width: 60rem;
     /* height: 30rem; */
@@ -92,31 +89,31 @@ button:disabled {
 
 #stats {
     /* height: 20%; */
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.1);
+    background-color: var(--color-w);
+    padding: var(--size-m);
+    border-radius: var(--size-xs);
+    box-shadow: 0 0 var(--size-s) rgba(0, 0, 0, 0.1);
 }
 
 #stats p, #stats h2 {
     margin: 0;
-    color: #000;
+    color: var(--color-b);
 }
 
 #score-table {
     border-collapse: collapse;
     width: 100%;
-    margin: 1rem auto 0rem;
+    margin: var(--size-m) auto 0;
 }
 
 #score-table th, #score-table td {
     border: 1px solid #ccc;
-    padding: 0.5rem;
+    padding: var(--size-xs);
     text-align: center;
 }
 
 #score-table th {
-    background-color: #f0f0f0;
+    background-color: var(--color-w);
 }
 
 #score-table td {
@@ -135,14 +132,14 @@ button:disabled {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 1.25rem;
+    gap: var(--size-l);
 }
 
 #dealer-hand div,
 #player-hand div {
     width: 7rem;
     height: 9rem;
-    background-color: #fff;
+    background-color: var(--color-w);
     border: 1px solid #ccc;
     border-radius: 0.3125rem;
     /* padding: 0.625rem; */
@@ -157,7 +154,7 @@ button:disabled {
 }
 
 #player p {
-    color: #fff;
+    color: var(--color-w);
 }
 
 #player-total {
@@ -167,5 +164,5 @@ button:disabled {
 #actions {
     display: flex;
     justify-content: center;
-    gap: 1.25rem;
+    gap: var(--size-l);
 }

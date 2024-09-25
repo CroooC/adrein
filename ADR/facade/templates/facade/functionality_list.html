@@ -13,7 +13,7 @@
         <h2>Funny Functionalities</h2>
         <div class="content-grid slider">
             {% for functionality in functionalities %}
-                <a class="card-slider" href="{% url 'functionality-detail' functionality.id %}">
+                <a class="card-slider" href="{{ functionality.link }}"> {% comment %} href="{% url 'functionality-detail' functionality.id %}" {% endcomment %}
                     <img src="{{ functionality.thumbnail.url }}" alt="{{ functionality.name }}">
                     <h4>{{ functionality.name }}</h4>
                     <p>{{ functionality.description }}</p>

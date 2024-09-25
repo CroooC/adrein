@@ -13,7 +13,7 @@
         <h2>Mini-Games</h2>
         <div class="content-grid slider">
             {% for game in games %}
-                <a class="card-slider" href="{{ game.link }}">
+                <a class="card-slider" href="{{ game.link }}"> {% comment %} href="{% url 'game-detail' game.id %}" {% endcomment %}
                     <img src="{{ game.thumbnail.url }}" alt="{{ game.name }}">
                     <h4>{{ game.name }}</h4>
                     <p>{{ game.description }}</p>

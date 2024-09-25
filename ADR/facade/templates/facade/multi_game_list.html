@@ -13,7 +13,7 @@
         <h2>MultiPlayers Mini-Games</h2>
         <div class="content-grid slider">
             {% for multi_game in multi_games %}
-                <a class="card-slider" href="{% url 'multi-game-detail' multi_game.id %}">
+                <a class="card-slider" href="{{ multi_game.link }}"> {% comment %} href="{% url 'multi-game-detail' multi_game.id %}" {% endcomment %}
                     <img src="{{ multi_game.thumbnail.url }}" alt="{{ multi_game.name }}">
                     <h4>{{ multi_game.name }}</h4>
                     <p>{{ multi_game.description }}</p>

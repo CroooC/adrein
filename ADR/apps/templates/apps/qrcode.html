@@ -20,11 +20,11 @@
     <div id="generator">
         <h2>QR Code Generator</h2>
         <input type="text" id="urlInput" placeholder="Enter URL to generate QR code">
-        <button id="generate-qrcode">Generate</button>
+        <button class="primary-button" id="generate-qrcode">Generate</button>
         {% comment %} onclick="generateQR()" {% endcomment %}
         <br>
         <canvas id="qrcode-canvas" width="200" height="200"></canvas>
-        <button id="download-qrcode">Download QR Code</button>
+        <button class="primary-button" id="download-qrcode">Download QR Code</button>
     </div>
     <div id="reader">
         <h2>QR Code Reader</h2>
@@ -32,7 +32,7 @@
         {% comment %} <input type="file" id="qr-file" accept="image/*">
         onchange="readQR(this)" {% endcomment %}
         <div id="qr-grid"></div>
-        <button id="read-qrcode">Read QR Code</button>
+        <button class="primary-button" id="read-qrcode">Read QR Code</button>
         <br>
         <div id="qrResult"></div>
         <p>The QR Reader wasn't tested, for obvious reasons...</p>

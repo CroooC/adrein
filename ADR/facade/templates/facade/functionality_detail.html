@@ -17,7 +17,7 @@
         <ul class="functionality-details">
             {% comment %} <li><strong>Active:</strong> {{ functionality.active|yesno }}</li> {% endcomment %}
             {% if functionality.active and functionality.link%}
-                <button class="secondary-button" href="{{ functionality.link }}">Play Now</a></button>
+                <button class="secondary-button"><a href="{{ functionality.link }}">Play Now</a></button>
             {% else %}
                 <li>This feature is not available right now, maybe try later...</li>
             {% endif %}

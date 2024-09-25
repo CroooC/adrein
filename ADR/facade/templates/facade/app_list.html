@@ -13,7 +13,7 @@
         <h2>Web Apps</h2>
         <div class="content-grid slider">
             {% for app in apps %}
-                <a class="card-slider" href="{% url 'app-detail' app.id %}">
+                <a class="card-slider" href="{{ app.link }}"> {% comment %} href="{% url 'app-detail' app.id %}" {% endcomment %}
                     <img src="{{ app.thumbnail.url }}" alt="{{ app.name }}">
                     <h4>{{ app.name }}</h4>
                     <p>{{ app.description }}</p>
