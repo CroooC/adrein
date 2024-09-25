@@ -11,9 +11,9 @@
 {% block content %}
     <section class="games-section">
         <h2>Mini-Games</h2>
-        <div class="content-grid">
+        <div class="content-grid slider">
             {% for game in games %}
-                <a href="{% url 'game-detail' game.id %}">
+                <a class="card-slider" href="{{ game.link }}">
                     <img src="{{ game.thumbnail.url }}" alt="{{ game.name }}">
                     <h4>{{ game.name }}</h4>
                     <p>{{ game.description }}</p>

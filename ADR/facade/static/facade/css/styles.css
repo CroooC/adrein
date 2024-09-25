@@ -1,10 +1,11 @@
 :root {
     --color-b: #000;
     --color-w: #fff;
+    --color-g: #141414;
+    --color-lg: #303030;
     --coloraccent1: #e74c3c;
     --coloraccent2: #1869eb;
     --coloraccent3: #e4e812f4;
-    --coloraccent4: #ababab;
 
     --ff2: "DM Sans", sans-serif;
     --ff1: "Verdana", sans-serif;
@@ -41,12 +42,12 @@
 
 .primary-button {
     color: var(--color-w);
-    background-color: var(--coloraccent2);
+    background-color: var(--coloraccent1);
     font: var(--p);
     font-weight: bold;
     padding: var(--size-m) var(--size-xxl);
     margin-top: var(--size-m);
-    border: 0.125rem solid var(--coloraccent2);
+    border: 0.125rem solid var(--coloraccent1);
     border-radius: var(--size-xxs);
     box-shadow: var(--shadow);
     cursor: pointer;
@@ -55,7 +56,7 @@
 
 .primary-button:hover {
     background-color: var(--coloraccent3);
-    color: var(--coloraccent2);
+    color: var(--coloraccent1);
     transform: scale(1.05);
 }
 

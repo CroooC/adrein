@@ -40,7 +40,7 @@
 
         <section class="games-section">
             <h2>Mini-Games</h2>
-            <div class="content-grid">
+            <div class="content-grid row">
                 {% for game in game_list %}
                     <a href="{% url 'game-detail' game.id %}">
                         <img src="{{ game.thumbnail.url }}" alt="{{ game.name }}">
@@ -53,7 +53,7 @@
 
         <section class="multi-games-section">
             <h2>MultiPlayers Mini-Games</h2>
-            <div class="content-grid">
+            <div class="content-grid row">
                 {% for multi_game in multi_game_list %}
                     <a href="{% url 'multi-game-detail' multi_game.id %}">
                         <img src="{{ multi_game.thumbnail.url }}" alt="{{ multi_game.name }}">
@@ -66,7 +66,7 @@
 
         <section class="apps-section">
             <h2>Web Apps</h2>
-            <div class="content-grid">
+            <div class="content-grid row">
                 {% for app in app_list %}
                     <a href="{% url 'app-detail' app.id %}">
                         <img src="{{ app.thumbnail.url }}" alt="{{ app.name }}">
@@ -79,7 +79,7 @@
 
         <section class="functionalities-section">
             <h2>Functionalities</h2>
-            <div class="content-grid">
+            <div class="content-grid row">
                 {% for functionality in functionality_list %}
                     <a href="{% url 'functionality-detail' functionality.id %}">
                         <img src="{{ functionality.thumbnail.url }}" alt="{{ functionality.name }}">
