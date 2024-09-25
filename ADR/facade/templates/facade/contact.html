@@ -20,7 +20,12 @@
             <form action="" method="post" novalidate>
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button class="primary-button" type="button">Send Message</button>
+
+                {% if error %}
+                    <p style="color:red">{{ error }}</p>
+                {% endif %}
+
+                <button class="primary-button" type="submit">Send Message</button>
             </form>
         </div>
     </div>

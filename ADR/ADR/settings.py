@@ -166,15 +166,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email
 
-# Mailjet settings
-MAILJET_API_KEY = env('MAILJET_API_KEY')
-MAILJET_API_SECRET = env('MAILJET_API_SECRET')
-EMAIL_HOST = 'in-v3.mailjet.com'
+# Gmail settings
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = MAILJET_API_KEY
-EMAIL_HOST_PASSWORD = MAILJET_API_SECRET
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST_USER = env('GMAIL_ADDRESS')
+EMAIL_HOST_PASSWORD = env('GMAIL_PASSWORD')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 # Thumbnails

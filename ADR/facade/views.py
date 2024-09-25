@@ -1,5 +1,6 @@
 import logging
 import environ
+import threading
 
 from django import forms
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
@@ -13,7 +14,6 @@ from django.views.decorators.http import require_http_methods
 
 from facade.forms import ContactUsForm
 from .models import Game, Functionality, App, Multi_Player
-from mailjet_rest import Client
 
 logger = logging.getLogger('django.security')
 
@@ -33,11 +33,17 @@ def index(request):
 def about(request):
     return render(request, 'facade/about.html')
 
+# Function to send emails asynchronously using threading
+def send_email_async(subject, message, from_email, recipient_list):
+    thread = threading.Thread(target=send_mail, args=(subject, message, from_email, recipient_list))
+    thread.start()
+
 def contact(request):
     if request.method == 'POST':
         form = ContactUsForm(request.POST)
         if form.is_valid():
 
+            # Validate the email
             email_to = form.cleaned_data['email']
             email_validator = EmailValidator()
             try:
@@ -46,44 +52,21 @@ def contact(request):
                 # Handle invalid email address
                 return render(request, 'error.html', {'error': 'Invalid email address'})
 
-            subject = f'Message from {form.cleaned_data["name"] or "anonyme"} via ADR Contact Us form'
+            # Prepare email content
+            subject = f'Message from {form.cleaned_data["name"] or "Anonyme"} via ADR Contact Us form'
             message = form.cleaned_data['message']
             from_email = form.cleaned_data['email']
             recipient_list = ['4dr1nn@gmail.com']
 
-            # Use Mailjet API to send the email
-            api_key = env('MAILJET_API_KEY')
-            api_secret = env('MAILJET_API_SECRET')
-            mailjet_client = Client(auth=(api_key, api_secret), version='v3.1')
-            data = {
-                'Messages': [
-                    {
-                        'From': {
-                            'Email': from_email,
-                            'Name': 'ADR Contact Form'
-                        },
-                        'To': [
-                            {
-                                'Email': recipient_list[0],
-                                'Name': 'Recipient'
-                            }
-                        ],
-                        'Subject': subject,
-                        'TextPart': message,
-                        'HtmlPart': '<h3>{}</h3><p>{}</p>'.format(subject, message)
-                    }
-                ]
-            }
-            result = mailjet_client.send.create(data=data)
+            # Send email asynchronously
+            send_email_async(subject, message, from_email, recipient_list)
 
-            if result.status_code == 200:
-                return HttpResponseRedirect('/email-sent/')
-            else:
-                # Handle email sending error
-                return HttpResponse('Error sending email')
-
-            # send_mail(subject, message, from_email, recipient_list)
-            # return HttpResponseRedirect('/email-sent/')
+            # Redirect to a confirmation page after email is sent
+            return HttpResponseRedirect('/email-sent/')
+        else:
+            # Handle email sending error
+            # return HttpResponse('Error sending email')
+            return render(request, 'facade/contact.html', {'form': form, 'error': 'Invalid form submission'})
     else:
         form = ContactUsForm()
     return render(request, 'facade/contact.html', {'form': form})
