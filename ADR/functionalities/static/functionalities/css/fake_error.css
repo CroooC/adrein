@@ -95,8 +95,8 @@ a:hover {
 
 /* Puzzle */
 .hover-word {
-    cursor: pointer; /* Show pointer cursor */
-    text-decoration: underline; /* Optional: underline the text */
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .hidden-text {
@@ -104,7 +104,7 @@ a:hover {
     top: 12rem;
     left: 0;
     width: 100%;
-    height: var(--size-6xl);
+    height: 20rem;
     background-color: rgba(0, 0, 0, 0.9);
     flex-direction: column;
     justify-content: center;

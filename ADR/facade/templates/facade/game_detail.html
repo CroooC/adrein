@@ -17,7 +17,7 @@
         <ul class="game-details">
             {% comment %} <li><strong>Active:</strong> {{ game.active|yesno }}</li> {% endcomment %}
             {% if game.active %}
-                <button class="secondary-button"><a href="{{ game.link }}">Play Now</button>
+                <a class="secondary-button" href="{{ game.link }}">Play Now</a>
             {% else %}
                 <li>This feature is not available right now, maybe try later...</li>
             {% endif %}

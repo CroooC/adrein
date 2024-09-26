@@ -35,8 +35,12 @@ def about(request):
 
 # Function to send emails asynchronously using threading
 def send_email_async(subject, message, from_email, recipient_list):
-    thread = threading.Thread(target=send_mail, args=(subject, message, from_email, recipient_list))
-    thread.start()
+    try:
+        thread = threading.Thread(target=send_mail, args=(subject, message, from_email, recipient_list))
+        thread.start()
+        logger.info(f"Attempting to send email to {recipient_list}")
+    except Exception as e:
+        logger.error(f"Error sending email: {e}")
 
 def contact(request):
     if request.method == 'POST':
@@ -97,6 +101,12 @@ def search_results(request):
                 'results': [],  # No results to show in the normal list
                 'query': query,
                 'hint_message': "You found the hint. Now I will test your knowledge."
+            })
+        elif query == "1418":
+            return render(request, 'facade/search_results.html', {
+                'results': [],  # No results to show in the normal list
+                'query': query,
+                'hint_name': "Really you don't know how is 1418? Continue searching..."
             })
     else:
         results = []

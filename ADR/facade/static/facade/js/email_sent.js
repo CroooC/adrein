@@ -1,26 +1,33 @@
 const validateBtn = document.getElementById('validationBtn');
 const answerCheck = document.getElementById('answer-check');
 
-let keyPressCount = 0;
-let requiredKeyPresses = 2;
-let requiredKeys = ['a', 'z'];
+let keysPressed = [];
 
 document.addEventListener("keydown", function (event) {
-    if (requiredKeys.includes(event.key)) {
-        keyPressCount++;
-        if (keyPressCount === requiredKeyPresses) {
+    // Check if the pressed key is 'a' or 'z'
+    if (event.key === 'a' || event.key === 'z') {
+        keysPressed.push(event.key);
+
+        // Limit the length of keysPressed array to 2
+        if (keysPressed.length > 2) {
+            keysPressed.shift(); // Remove the first element if more than 2 keys are stored
+        }
+
+        // Check if the keys pressed are 'a' followed by 'z'
+        if (keysPressed.length === 2 && keysPressed[0] === 'a' && keysPressed[1] === 'z') {
             document.getElementById('hidden-tab').style.display = "block";
             document.getElementById('alpha-omega').style.display = "none";
-            keyPressCount = 0; // Reset the count
+            keysPressed = []; // Reset the keys pressed array
         }
     } else {
-        keyPressCount = 0; // Reset the count if the wrong key is pressed
+        keysPressed = []; // Reset the keys pressed array if a wrong key is pressed
     }
 });
 
+
 answerCheck.addEventListener('keydown', function (event) {
     if (event.keyCode === 13) {
-        validateBtnButton.click();
+        validateBtn.click();
     }
 });
 
@@ -30,7 +37,7 @@ function validateAnswer() {
     const result = document.getElementById("check-result");
 
     if (userAnswer.trim() === correctAnswer) {
-        result.innerHTML = '<p>Correct! France is most visited country in the world!</p><br>' + '<p>The name is the key. The words are the path. What does the french guy say?</p><br>' + '<p>After understanding what he ask you to do, he will give you a stage text.</p><br>' + '<p>This text will lead you to your final destination!</p><br>' + '<p>But before you need to generate the gate thanks to a special code generator and this text.</p><br>';
+        result.innerHTML = '<p>Correct! France is most visited country in the world!</p><br>' + '<p>The name is the key. The words are the path. What does the french guy say?</p><br>' + '<p>After understanding what he is saying, he will give you a strage text.</p><br>' + '<p>This text will lead you to your final destination!</p><br>' + '<p>And to go there, you need to generate the gate thanks to a special code generator and this text.</p><br><br>' + '<p>Take note because you will no longer have access to this clues!</p><br>';
         validateBtn.style.display = 'none';
         answerCheck.style.display = 'none';
     } else {
