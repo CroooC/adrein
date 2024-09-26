@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const pdfFileInput = document.getElementById('pdf-file');
     const uploadPdfButton = document.getElementById('upload-pdf-button');
-    const loadingText = document.getElementById('loading');
+    const loadingDiv = document.getElementById('loading');
     const revisionTextHeader = document.getElementById('revision-text-header');
     const revisionTextContent = document.getElementById('revision-text-content');
     const previewScreen = document.getElementById('preview');
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const pdfFile = pdfFileInput.files[0];
         const formData = new FormData();
         formData.append('pdf-file', pdfFile);
-        loadingText.style.display = 'block';
+        loadingDiv.style.display = 'flex';
 
         fetch(revisionSheetBuilderUrl, {
             method: 'POST',
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 formattedSummary = summary.replace(/\*\*(.*?)\*\*/g, '<h3>$1</h3>').replace(/\*(.*?)\n/g, '<p>$1<br/></p>').replace(/\n/g, '<p>');
                 revisionTextContent.innerHTML = formattedSummary;
 
-                loadingText.style.display = 'none';
+                loadingDiv.style.display = 'none';
                 revisionTextHeader.style.display = 'block';
                 revisionTextContent.style.display = 'block';
                 previewButton.style.display = 'block';

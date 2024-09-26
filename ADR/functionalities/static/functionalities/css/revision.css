@@ -42,10 +42,50 @@ main {
     margin: var(--size-m) 0;
 }
 
-#loading {
-    font-size: large;
-    /* color: #ff2424; */
+/* Loading Page */
+
+/* #loading {
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-w);
+    opacity: 0.95;
+    z-index: 1;
+} */
+
+.loading {
+    max-width: 30%;
+    /* line-height: 1.4;
+    font-size: 1.2rem;
+    font-weight: bold; */
+    font: var(--h4);
+    text-align: center;
+    margin: 2rem auto;
 }
+
+.loading__anim {
+    margin-top: var(--size-xl);
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    border: 5px solid rgba(189, 189, 189, 0.25);
+    border-left-color: var(--coloraccent2);
+    border-top-color: var(--coloraccent2);
+    border-radius: 50%;
+    animation: rotate 600ms infinite linear;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+/* Revision Text */
 
 .revision-text {
     margin: var(--size-m) auto;

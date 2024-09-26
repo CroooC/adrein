@@ -224,7 +224,7 @@ nav ul li a:hover {
 
 .search-form input[type="text"] {
     padding: var(--size-xs);
-    border: 1px solid var(--coloraccent4);
+    border: 1px solid var(--coloraccent1);
     border-radius: var(--size-xxs);
     width: var(--size-5xl);
 }

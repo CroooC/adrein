@@ -18,8 +18,13 @@
             {% comment %} {% csrf_token %} {% endcomment %}
             <input type="file" id="pdf-file" accept="application/pdf">
             <button class="primary-button" id="upload-pdf-button">Upload PDF</button>
-            <p id="loading" style="display: none">Wait a little more, the file is being synthetized...</p>
         </form>
+        <div id="loading" style="display: none;">
+            <section class="loading">
+                Wait a little more, the file is being synthetized...<br>
+                <span class="loading__anim"></span>
+            </section>
+        </div>
         <div class="revision-text">
             <h2 id="revision-text-header" style="display: none;">Revision Summary:</h2>
             <button class="secondary-button" id="show-preview-button" style="display: none;">Show/Hide approximate pdf output format</button>
