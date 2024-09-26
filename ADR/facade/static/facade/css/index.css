@@ -118,10 +118,10 @@ section {
 .content-grid a {
     display: inline-block;
     width: clamp(var(--size-xxxl), 15%, 20%);
-    background-color: var(--color-b);
+    background-color: var(--color-g);
     padding: var(--size-xs);
     margin: var(--size-s) var(--size-m);
-    box-shadow: var(--size-m) var(--size-m) var(--size-m) rgba(0, 0, 0, 0.6),
+    box-shadow: var(--size-m) var(--size-m) var(--size-m) rgba(0, 0, 0, 0.8),
         -10px -10px 6px var(--color-lg);
     border-radius: var(--size-m);
     text-decoration: none;

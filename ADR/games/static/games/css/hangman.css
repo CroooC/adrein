@@ -17,7 +17,7 @@ h1 {
 
 #table {
     display: grid;
-    grid-template-columns: 30% 1fr 30%; /* 20% for #stats-column, 1fr for #game-content */
+    grid-template-columns: 25% 1fr 25%; /* 20% for #stats-column, 1fr for #game-content */
     grid-gap: 2rem;
     padding: var(--size-l);
 }
@@ -58,6 +58,20 @@ h1 {
     background-color: var(--color-w);
 }
 
+#reset-button {
+    background-color: var(--color-w);
+    color: var(--color-b);
+    padding: var(--size-xxs) var(--size-xxs);
+    border: none;
+    cursor: pointer;
+    border-radius: var(--size-xxs);
+    font-size: var(--size-m);
+}
+
+#reset-button:hover {
+    background-color: var(--color-w);
+}
+
 /* Popup */
 
 #popup-container {
@@ -65,12 +79,12 @@ h1 {
     /* display: none; */
 }
 
-#popup-container.hide {
+.hide {
     opacity: 0;
     transition: opacity 1s;
 }
 
-#popup-container.show {
+.show {
     opacity: 1;
     transition: opacity 0.3s;
 }
@@ -92,6 +106,13 @@ h1 {
     font-weight: bold;
 }
 
-#result-column {
-    grid-column: 3;
+#hangman-canvas {
+    position: fixed;
+    top: 30%;
+    right: 15%;
+    padding: var(--size-xxs);
+    border: 2px solid #ddd;
+    background-color: var(--color-w);
+    box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.1);
+    max-width: 20rem;
 }

@@ -18,10 +18,13 @@
             <div id="word-container"></div>
             <p id="lives">Lives: <span id="lives-count">7</span></p>
             <p id="used-letters">Used Letters: <span id="used-letters-list"></span></p>
+            <button id="reset-button" class="hide">Restart Game</button>
             <input type="text" id="guess-input" placeholder="Enter a letter">
             <button id="guess-button">Guess</button>
         </div>
-        <div id="hiden-column"></div>
+        <div id="hangman-drawing">
+            <canvas id="hangman-canvas" width="200" height="200"></canvas>
+        </div>
     </div>
 
     <script src="{% static 'games/js/hangman.js' %}"></script>

@@ -25,6 +25,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sounds
     //const gameOverSound = new Audio('gameover.wav');
 
+    // Load Assets
+    const appleImage = new Image();
+    const snakeHeadImage = new Image();
+    const snakeBodyImage = new Image();
+    const snakeTailImage = new Image();
+
+    appleImage.src = appleImgSrc;
+    snakeTailImage.src = snakeHeadImgSrc;
+    snakeHeadImage.src = snakeBodyImgSrc;
+    snakeBodyImage.src = snakeTailImgSrc;
+
+
     // Functions
     function drawText(text, x, y) {
         context.fillStyle = TEXTCOLOR;
@@ -51,6 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function drawApple(coord) {
         context.fillStyle = 'red';
         context.fillRect(coord.x * CELL_SIZE, coord.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+
+        // context.drawImage(appleImage, coord.x * CELL_SIZE, coord.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
     }
 
     function drawWorm() {
@@ -59,6 +73,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const { x, y } = wormCoords[i];
             context.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
         }
+
+        // for (let i = 0; i < wormCoords.length; i++) {
+        //     const { x, y } = wormCoords[i];
+        //     if (i === 0) {
+        //         // Draw head
+        //         context.drawImage(snakeTailImage, x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        //     } else if (i === wormCoords.length - 1) {
+        //         // Draw tail
+        //         context.drawImage(snakeBodyImage, x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        //     } else {
+        //         // Draw body
+        //         context.drawImage(snakeHeadImage, x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        //     }
+        // }
     }
 
     function placeApple() {
@@ -171,6 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         context.clearRect(0, 0, WINDOWWIDTH, WINDOWHEIGHT);
         context.fillStyle = BACKGROUNDCOLOR;
         context.fillRect(0, 0, WINDOWWIDTH, WINDOWHEIGHT);
+
         drawGrid();
         drawApple(appleCoord);
         drawWorm();
