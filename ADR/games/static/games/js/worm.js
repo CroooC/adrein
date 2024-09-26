@@ -62,11 +62,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function placeApple() {
-        appleCoord = {
-            x: Math.floor(Math.random() * CELLS_WIDE),
-            y: Math.floor(Math.random() * CELLS_HIGH)
-        };
+        let applePlaced = false;
+
+        while (!applePlaced) {
+            // Generate random apple coordinates
+            const newAppleCoord = {
+                x: Math.floor(Math.random() * CELLS_WIDE),
+                y: Math.floor(Math.random() * CELLS_HIGH)
+            };
+
+            // Check if the new apple coordinates overlap with any part of the snake
+            let collisionWithSnake = false;
+            for (let i = 0; i < wormCoords.length; i++) {
+                if (wormCoords[i].x === newAppleCoord.x && wormCoords[i].y === newAppleCoord.y) {
+                    collisionWithSnake = true;
+                    break;
+                }
+            }
+
+            // If there's no collision, place the apple
+            if (!collisionWithSnake) {
+                appleCoord = newAppleCoord;
+                applePlaced = true;
+            }
+        }
     }
+
 
     function updateScoreDisplay() {
         document.getElementById('scoreDisplay').textContent = `${score}`;

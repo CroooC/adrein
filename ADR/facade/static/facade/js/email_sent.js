@@ -32,12 +32,12 @@ answerCheck.addEventListener('keydown', function (event) {
 });
 
 function validateAnswer() {
-    const correctAnswer = "France"; // Replace with the actual answer
+    const correctAnswer = "Paris"; // Replace with the actual answer
     const userAnswer = document.getElementById("answer-check").value;
     const result = document.getElementById("check-result");
 
     if (userAnswer.trim() === correctAnswer) {
-        result.innerHTML = '<p>Correct! France is most visited country in the world!</p><br>' + '<p>The name is the key. The words are the path. What does the french guy say?</p><br>' + '<p>After understanding what he is saying, he will give you a strage text.</p><br>' + '<p>This text will lead you to your final destination!</p><br>' + '<p>And to go there, you need to generate the gate thanks to a special code generator and this text.</p><br><br>' + '<p>Take note because you will no longer have access to this clues!</p><br>';
+        result.innerHTML = '<p>Correct! Paris had been taken by John the Fearless, Duke of Burgundy. On the night of 28 to 29 May, a certain Perrinet Le Clair, the son of an iron merchant, opened the Porte Saint-Germain to Jean de Villiers de L Isle - Adam, a Burgundian captain.</p><br>' + '<p>The name is the key. The words are the path. What does the french guy say?</p><br>' + '<p>After understanding what he is saying, he will give you a strage text.</p><br>' + '<p>This text will lead you to your final destination!</p><br>' + '<p>And to go there, you need to generate the gate thanks to a special code generator and this text.</p><br><br>' + '<p>Take note because you will no longer have access to this clues!</p><br>';
         validateBtn.style.display = 'none';
         answerCheck.style.display = 'none';
     } else {
