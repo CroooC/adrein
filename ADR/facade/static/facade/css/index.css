@@ -79,6 +79,7 @@ section {
 .news {
     display: flex;
     justify-content: center;
+    padding: 0 0 var(--size-m);
 }
 
 .intro p {
@@ -186,6 +187,7 @@ section {
     margin: var(--size-xs) 0 var(--size-m) 0;
     width: 100%;
     box-sizing: border-box;
+    border-radius: var(--size-s);
 }
 
 
@@ -196,7 +198,7 @@ section {
     color: var(--color-b);
     padding: var(--size-xl) var(--size-xl);
     margin: 0;
-    background-color: var(--color-w);
+    background-color: #e6e6e6;
     border-radius: var(--size-l);
 }
 
@@ -211,8 +213,8 @@ section {
     width: 60%;
     color: var(--color-b);
     padding: var(--size-m) var(--size-4xl) var(--size-xl);
-    background-color: #ccc;
-    border-radius: var(--size-xxs);
+    background-color: #e6e6e6;
+    border-radius: var(--size-xl);
     text-align: left;
     margin: 0 auto;
 }

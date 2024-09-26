@@ -262,13 +262,13 @@ footer {
 
 .copyright h4 {
     font: var(--p);
-    color: var(--color-b);
+    color: var(--color-g);
     font-weight: normal;
 }
 
 .version p {
     font: var(--smalltext);
-    color: var(--coloraccent4);
+    color: var(--color-lg);
     /* padding: var(--size-xxl) var(--size-xs) 0 0; */
 }
 

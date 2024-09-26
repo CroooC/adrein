@@ -16,101 +16,96 @@
 {% block content %}
     <section class="search-section">
         <h2>Search Results</h2>
-        <p>You searched for: "{{ query }}"</p><br>
-        <div class="content-grid">
-            <ul>
-                {% for result in results %}
-                    <li>
-                        <a href="{{ result.get_absolute_url }}">
-                            {% if result.thumbnail %}
-                                <img src="{{ result.thumbnail.url }}" alt="{{ result.name }}">
-                            {% else %}
-                                <!-- Provide a placeholder image if no thumbnail is available -->
-                                <img src="{% static 'placeholder.jpg' %}" alt="Placeholder Image">
-                            {% endif %}
-                            {{ result.name }}
-                        </a>
-                    </li>
-                {% empty %}
-                    {% if hint_message %}
-                        <br>
-                        <div class="hidden-message">
-                            <li>{{ hint_message }}</li><br> <!-- Display the hint message instead -->
-                            <li>What was treacherously stolen?</li><br>
-                            <li>If you have/haven't the answer just ask the divinities by sending them your response...</li><br>
-                        </div><br>
-                        <div class="signature">
-    <pre>
- ██
-███
- ██
- ██
-████
-    </pre>
-    <pre>
-   ██
-  ███
- ██ ██
-██  ██
-███████
-    </pre>
-    <pre>
- ██
-███
- ██
- ██
-████
-    </pre>
-    <pre>
- ████
-██  ██
- ████
-██  ██
- ████
-    </pre>
-                        </div>
-                    {% elif hint_name %}
-                    <br>
-                        <div class="hidden-message">
-                            <li>{{ hint_name }}</li><br>
-                            {% comment %} <li>What is the most beautifull country in the world?</li><br>
-                            <li>If you have/haven't the answer just ask the divinities by sending them your response...</li><br> {% endcomment %}
-                        </div><br>
-                        <div class="signature">
-    <pre>
- ██
-███
- ██
- ██
-████
-    </pre>
-    <pre>
-   ██
-  ███
- ██ ██
-██  ██
-███████
-    </pre>
-    <pre>
- ██
-███
- ██
- ██
-████
-    </pre>
-    <pre>
- ████
-██  ██
- ████
-██  ██
- ████
-    </pre>
-                        </div>
+        <p style="margin: -1rem auto 1rem;">You searched for: "{{ query }}"</p>
+        <div class="content-grid row">
+            {% for result in results %}
+                <a href="{{ result.get_absolute_url }}">
+                    {% if result.thumbnail %}
+                        <img src="{{ result.thumbnail.url }}" alt="{{ result.name }}">
                     {% else %}
-                        <li>Sorry! No results found...</li>
+                        <!-- Provide a placeholder image if no thumbnail is available -->
+                        <img src="{% static 'placeholder.jpg' %}" alt="Placeholder Image">
                     {% endif %}
-                {% endfor %}
-            </ul>
+                    <h4>{{ result.name }}</h4>
+                </a>
+            {% empty %}
+                {% if hint_message %}
+                    <br>
+                    <div class="hidden-message">
+                        <li>{{ hint_message }}</li><br> <!-- Display the hint message instead -->
+                        <li>What was treacherously stolen?</li><br>
+                        <li>If you have/haven't the answer just ask the divinities by sending them your response...</li><br>
+                    </div><br>
+                    <div class="signature">
+    <pre>
+ ██
+███
+ ██
+ ██
+████
+    </pre>
+    <pre>
+   ██
+  ███
+ ██ ██
+██  ██
+███████
+    </pre>
+    <pre>
+ ██
+███
+ ██
+ ██
+████
+    </pre>
+    <pre>
+ ████
+██  ██
+ ████
+██  ██
+ ████
+    </pre>
+                    </div>
+                {% elif hint_name %}
+                <br>
+                    <div class="hidden-message">
+                        <li>{{ hint_name }}</li><br>
+                        <li>Good try but maybe it was to easy to hide a clue here</li><br>
+                    </div><br>
+                    <div class="signature">
+    <pre>
+ ██
+███
+ ██
+ ██
+████
+    </pre>
+    <pre>
+   ██
+  ███
+ ██ ██
+██  ██
+███████
+    </pre>
+    <pre>
+ ██
+███
+ ██
+ ██
+████
+    </pre>
+    <pre>
+ ████
+██  ██
+ ████
+██  ██
+ ████
+    </pre>
+                    </div>
+                {% else %}
+                    <li>Sorry! No results found...</li>
+                {% endif %}
+            {% endfor %}
         </div>
     </section>
 {% endblock %}
