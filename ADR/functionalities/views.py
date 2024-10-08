@@ -12,10 +12,10 @@ from groq import Groq
 # Create your views here.
 
 def quirky_hover(request):
-    return render(request, 'functionalities/quirky_hover.html')
+    return render(request, 'functionalities/quirky_hover.html', {'page_type': 'functionality'})
 
 def fake_error(request):
-    return render(request, 'functionalities/fake_error.html')
+    return render(request, 'functionalities/fake_error.html', {'page_type': 'functionality'})
 
 def revision_sheet_builder(request):
     print("revision_sheet_builder view called")
@@ -39,7 +39,7 @@ def revision_sheet_builder(request):
             # Return the summary as a JSON response
             return JsonResponse({'summary': summary})
 
-    return render(request, 'functionalities/revision.html')
+    return render(request, 'functionalities/revision.html', {'page_type': 'functionality'})
 
 def call_groq_api(tokens):
     client = Groq(api_key=settings.GROQ_API_KEY)

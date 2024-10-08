@@ -9,14 +9,14 @@ environ.Env.read_env(env.str('ENV_FILE', '.env'))
 # Create your views here.
 
 def qrcode(request):
-    return render(request, 'apps/qrcode.html')
+    return render(request, 'apps/qrcode.html', {'page_type': 'app'})
 
 def quote_generator(request):
-    return render(request, 'apps/quote.html')
+    return render(request, 'apps/quote.html', {'page_type': 'app'})
 
 def weather(request):
     api_key = env('WEATHER_API_KEY')
-    return render(request, 'apps/weather.html', {'api_key': api_key})
+    return render(request, 'apps/weather.html', {'api_key': api_key, 'page_type': 'app'})
 
 def cipher(request):
     result = None  # To store the result of the encryption/decryption
@@ -46,7 +46,7 @@ def cipher(request):
                 error = 'Invalid operation'
 
     # Render the template with the result and error
-    return render(request, 'apps/cipher.html', {'result': result, 'error': error})
+    return render(request, 'apps/cipher.html', {'result': result, 'error': error, 'page_type': 'app'})
 
 def cesarEncrypt(text, shift):
     result = ""
