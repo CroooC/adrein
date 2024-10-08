@@ -225,9 +225,14 @@ nav ul li a:hover {
 
 .search-form input[type="text"] {
     padding: var(--size-xs);
-    border: 1px solid var(--coloraccent1);
+    border: 1px solid var(--color-g);
     border-radius: var(--size-xxs);
     width: var(--size-5xl);
+}
+
+.search-form input[type="text"]:focus {
+    border: 1px solid var(--coloraccent1);
+    outline: none;
 }
 
 .search-form button[type="submit"] {

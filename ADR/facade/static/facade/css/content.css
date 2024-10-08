@@ -148,15 +148,27 @@ button {
     opacity: 0.9;
 }
 
+svg {
+    fill: var(--color-b);
+    width: var(--size-l);
+}
+
+svg:hover {
+    fill: var(--coloraccent1);
+}
+
 /* Header */
 
 header {
     background-color: var(--color-w);
     color: var(--color-b);
     padding: var(--size-xs);
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 15% 1fr 15%; /* 20% for #stats-column, 1fr for #game-content */
+    grid-gap: 2rem;
+    justify-content: space-between;
     align-items: center;
+    text-align: center;
 }
 
 nav {
@@ -179,8 +191,12 @@ nav ul {
     display: flex;
 }
 
-nav ul li {
-    margin: 0 0.65em;
+nav[aria-label="default_main_menu"] {
+    margin: 0 auto;
+}
+
+nav[aria-label="return_arrow"] {
+    margin: 0 var(--size-m);
 }
 
 nav ul li a:hover {

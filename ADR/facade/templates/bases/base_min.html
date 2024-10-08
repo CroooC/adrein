@@ -13,12 +13,29 @@
     </head>
     <body>
         <header>
-            <nav aria-label="default main menu">
+            <nav aria-label="return_arrow">
                 <ul>
                     <li>
-                        <a href="{% url 'home' %}" class="link_icon">
-                            <img src="{% static 'facade/logo.png' %}" alt="Logo ADR">
+                        {% if page_type == 'app' %}
+                            <a href="{% url 'app-list' %}" class="link_icon">
+                        {% elif page_type == 'game' %}
+                            <a href="{% url 'game-list' %}" class="link_icon">
+                        {% elif page_type == 'functionality' %}
+                            <a href="{% url 'functionality-list' %}" class="link_icon">
+                        {% elif page_type == 'multi_game' %}
+                            <a href="{% url 'multi-game-list' %}" class="link_icon">
+                        {% else %}
+                            <a href="{% url 'home' %}" class="link_icon">
+                        {% endif %}
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
                         </a>
+                    </li>
+                </ul>
+            </nav>
+            <nav aria-label="default_main_menu">
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}" class="link_icon"><img src="{% static 'facade/logo.png' %}" alt="Logo ADR"></a>
                     </li>
                 </ul>
             </nav>
